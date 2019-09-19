@@ -23,16 +23,8 @@
 
 <!-- container -->
 <div class="container">
-
-    <?php
-    // if given page title is 'Login', do not display the title
-    if($page_title!="Login"){
-        ?>
-        <div class='col-md-12'>
-            <div class="page-header">
-                <h1><?php echo isset($page_title) ? $page_title : "The Code of a Ninja"; ?></h1>
-            </div>
+    <div class='col-md-12'>
+        <div class="page-header">
+            <h1><?php echo isset($page_title) ? $page_title : "The Code of a Ninja"; ?></h1>
         </div>
-        <?php
-    }
-    ?>
+    </div>

@@ -7,10 +7,11 @@ $page_title = "Login";
 
 // include login checker
 $require_login=false;
-include_once "../logger/login_checker.php";
 
 // default to false
 $access_denied=false;
+
+include_once "../logger/login_checker.php";
 
 // post code will be here
 // if the login form was submitted
@@ -52,13 +53,10 @@ if($_POST){
         // else, redirect only to 'Customer' section
         elseif($user->access_level=='Customer')
         {
-
             header("Location: {$home_url}customer/index.php?action=login_success");
         }
-        else
-            {
-            header("Location: {$home_url}logger/login.php?action=login_success");
-        }
+
+
     }
 
 // if username does not exist or password is wrong

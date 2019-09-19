@@ -36,7 +36,6 @@
                             <span class="glyphicon 	glyphicon glyphicon-shopping-cart"></span> Cart
                         </a>
                     </li>
-
                     <li <?php echo $page_title=="Edit Profile" ? "class='active'" : ""; ?>>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>

@@ -7,7 +7,6 @@ $page_title="Customer Index";
 
 // include login checker
 $require_login=true;
-include_once "../logger/login_checker.php";
 
 // include page header HTML
 include_once 'layout_head.php';
@@ -39,5 +38,5 @@ echo "<div class='col-md-12'>";
 echo "</div>";
 
 // footer HTML and JavaScript codes
-include 'layout_foot.php';
+include '../layout_foot.php';
 ?>

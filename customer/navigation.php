@@ -32,7 +32,7 @@
                 ?>
                 <ul class="nav navbar-nav navbar-right">
                     <li <?php echo $page_title=="Cart" ? "class='active'" : ""; ?>>
-                        <a href="<?php echo $home_url; ?>cart">
+                        <a href="<?php echo $home_url; ?>cart/cart.php">
                             <span class="glyphicon 	glyphicon glyphicon-shopping-cart"></span> Cart
                         </a>
                     </li>
@@ -44,7 +44,7 @@
                             &nbsp;&nbsp;<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="<?php echo $home_url; ?>logout.php">Logout</a></li>
+                            <li><a href="<?php echo $home_url; ?>logger/logout.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

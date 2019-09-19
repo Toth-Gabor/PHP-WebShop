@@ -4,10 +4,6 @@ include_once "../config/core.php";
 // set page title
 $page_title="Admin Index";
 
-// check if logged in as admin
-include_once "../logger/login_checker.php";
-
-
 // include page header HTML
 include 'layout_head.php';
 
@@ -39,5 +35,5 @@ echo "<div class='col-md-12'>";
 echo "</div>";
 
 // include page footer HTML
-include_once 'layout_foot.php';
+include_once '../layout_foot.php';
 ?>

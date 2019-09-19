@@ -3,7 +3,7 @@
 include_once "../config/core.php";
 
 // check if logged in as admin
-include_once "login_checker.php";
+//include_once "login_checker.php";
 
 // include classes
 include_once '../config/database.php';
@@ -39,5 +39,5 @@ include_once "read_users_template.php";
 echo "</div>";
 
 // include page footer HTML
-include_once "layout_foot.php";
+include_once "../layout_foot.php";
 ?>
