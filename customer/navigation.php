@@ -33,7 +33,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li <?php echo $page_title=="Cart" ? "class='active'" : ""; ?>>
                         <a href="<?php echo $home_url; ?>cart">
-                            <span class="glyphicon glyphicon-log-in"></span> Cart
+                            <span class="glyphicon 	glyphicon glyphicon-shopping-cart"></span> Cart
                         </a>
                     </li>
                     <li <?php echo $page_title=="Edit Profile" ? "class='active'" : ""; ?>>

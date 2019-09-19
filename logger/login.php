@@ -50,9 +50,14 @@ if($_POST){
         }
 
         // else, redirect only to 'Customer' section
-        else{
+        elseif($user->access_level=='Customer')
+        {
 
             header("Location: {$home_url}customer/index.php?action=login_success");
+        }
+        else
+            {
+            header("Location: {$home_url}logger/login.php?action=login_success");
         }
     }
 
