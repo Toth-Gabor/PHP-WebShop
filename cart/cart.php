@@ -5,10 +5,11 @@ $page_title = "Cart";
 
 include_once "layout_head.php";
 
-    echo "<div class='alert alert-info'>";
-        echo "<strong>Cart content will be here</strong>";
-    echo "</div>";
+echo "<div class='alert alert-info'>";
+    echo "<strong>Cart content will be here</strong>";
 echo "</div>";
+
+
 
 
 

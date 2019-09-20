@@ -5,7 +5,11 @@ include_once "../config/core.php";
 // set page title
 $page_title="Customer Index";
 
-// include login checker
+$require_login = true;
+
+//include_once "../logger/login_checker.php";
+// TODO: Login check!!!
+
 $require_login=true;
 
 // include page header HTML

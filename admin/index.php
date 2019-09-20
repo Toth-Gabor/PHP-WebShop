@@ -3,6 +3,11 @@
 include_once "../config/core.php";
 // set page title
 $page_title="Admin Index";
+$require_login = true;
+//include_once "../logger/login_checker.php";
+// TODO: Login check!!!
+
+
 
 // include page header HTML
 include 'layout_head.php';
