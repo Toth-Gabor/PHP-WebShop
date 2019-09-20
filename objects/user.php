@@ -1,5 +1,5 @@
 <?php
-// 'user' object
+// TODO: methods move to Dbo sevice
 class User{
 
     // database connection and table name
