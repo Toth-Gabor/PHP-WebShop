@@ -18,8 +18,8 @@ class SimpleProductServices implements ProductServices {
         return $this->productDao->GetAll();
     }
 
-    public function ReadOne()
+    public function ReadOne($product_id)
     {
-        // TODO: Implement ReadOne() method.
+        return $this->productDao->GetOneById($product_id);
     }
 }
