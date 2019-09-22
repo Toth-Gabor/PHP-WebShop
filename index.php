@@ -14,7 +14,7 @@ echo "<div class='col-md-12'>";
     echo "<div class='alert alert-info'>";
         echo "Content when logged in will be here. For example, your premium products or services.";
     echo "</div>";
-
+include_once "products_template.php";
 echo "</div>";
 
 // footer HTML and JavaScript codes
