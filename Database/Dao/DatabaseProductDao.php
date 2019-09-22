@@ -15,10 +15,11 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
     {
         try {
             $productsList = array();
-            $sql = "SELECT product_id, product_name, brand, specification, description, quantity, price, image, category FROM products";
+            $sql = "SELECT product_id, product_name, brand, specification, description, 
+                           quantity, price, image, category FROM products";
             $row = $this->conn->query($sql);
             $row->execute();
-            // output data of each row
+
             while ($temp = $row->fetch()) {
                 $productsList[] = $this->FetchProduct($temp);
             }
@@ -31,7 +32,20 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
 
     public function GetOneById($product_id)
     {
-        // TODO: Implement GetOneById() method.
+        try {
+            $sql = "SELECT product_id, product_name, brand, specification, description,
+                           quantity, price, image, category FROM products WHERE product_id = ?";
+            $row = $this->conn->query($sql);
+            $row->bindParam(1, $product_id, PDO::PARAM_INT);
+            $row->execute();
+
+            while ($temp = $row->fetch()) {
+                return $this->FetchProduct($temp);
+            }
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
+        return null;
     }
 
     public function GetAllByCategory($category)
