@@ -12,7 +12,6 @@ class SimpleProductServices implements ProductServices {
         $this->productDao = new DatabaseProductDao();
     }
 
-
     public function ReadAll()
     {
         return $this->productDao->GetAll();
