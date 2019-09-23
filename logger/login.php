@@ -1,23 +1,16 @@
 <?php
-// core configuration
 include_once "../config/core.php";
 
-// set page title
 $page_title = "Login";
 
-// include login checker
 $require_login=false;
 
-// default to false
 $access_denied=false;
 
 include_once "../logger/login_checker.php";
 
-// post code will be here
-// if the login form was submitted
 if($_POST){
     // email check will be here
-    // include classes
     include_once "../config/database.php";
     include_once "../objects/user.php";
 
@@ -65,13 +58,10 @@ if($_POST){
     }
 }
 
-// login form html will be here
-// include page header HTML
 include_once "../layout_head.php";
 
 echo "<div class='col-sm-6 col-md-4 col-md-offset-4'>";
 
-// alert messages will be here
 // get 'action' value in url parameter to display corresponding prompt messages
 $action=isset($_GET['action']) ? $_GET['action'] : "";
 
@@ -118,6 +108,4 @@ if($access_denied){
 
 echo "</div>";
 
-// footer HTML and JavaScript codes
 include_once "../layout_foot.php";
-?>

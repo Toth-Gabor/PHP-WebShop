@@ -11,8 +11,8 @@ if($num>0){
             echo "<th>Email</th>";
             echo "<th>Contact Number</th>";
             echo "<th>Access Level</th>";
-            echo "<th>Edit</th>";
-            echo "<th>Delete</th>";
+            echo "<th>Actions</th>";
+
         echo "</tr>";
 
         // loop through the user records
@@ -26,15 +26,15 @@ if($num>0){
                 echo "<td>{$email}</td>";
                 echo "<td>{$contact_number}</td>";
                 echo "<td>{$access_level}</td>";
-                echo '<td><a href="" type="button" class="btn btn-labeled btn-primary">
-                <span class="btn-label"></span>Edit</a></td>';
-                echo '<td><a href="" type="button" class="btn btn-labeled btn-danger">
-                <span class="btn-label"></span>Delete</button></td>';
-
-
+                echo '<td><a href="" type="button" class="btn btn-primary">
+                        <span class="btn-label"></span>Read</a>';
+                            echo '<a href="" type="button" class="btn btn-labeled btn-success">
+                        <span class="btn-label"></span>Edit</a>';
+                            echo '<a href="" type="button" class="btn btn-labeled btn-danger">
+                        <span class="btn-label"></span>Delete</button>
+                    </td>';
             echo "</tr>";
         }
-
     echo "</table>";
 
     $page_url="read_users.php?";
