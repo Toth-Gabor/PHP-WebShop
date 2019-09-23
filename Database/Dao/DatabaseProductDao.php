@@ -35,7 +35,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         try {
             $sql = "SELECT product_id, product_name, brand, specification, description,
                            quantity, price, image, category FROM products WHERE product_id = ?";
-            $row = $this->conn->query($sql);
+            $row = $this->conn->prepare($sql);
             $row->bindParam(1, $product_id, PDO::PARAM_INT);
             $row->execute();
 
