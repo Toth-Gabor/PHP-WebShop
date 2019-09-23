@@ -3,14 +3,11 @@ include_once "../config/core.php";
 
 $page_title = "Cart";
 
-include_once "layout_head.php";
+include_once "../cart/layout_head.php";
 
-echo "<div class='alert alert-info'>";
-    echo "<strong>Cart content will be here</strong>";
-echo "</div>";
+?>
+<div class='col-md-12'>
+    <div class='alert alert-danger'>No products found in your cart</div>
+</div>
 
-
-
-
-
-include_once "../layout_foot.php";
+<?= include '../layout_foot.php'; ?>
