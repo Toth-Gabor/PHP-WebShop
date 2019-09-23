@@ -6,7 +6,7 @@ $SAPS = new SimpleProductServices();
 $productsList = $SAPS->ReadAll();
 
 ?>
-<div>
+<div"> <!-- col-md-4 m-b-20px -->
     <table class='table table-hover table-responsive table-bordered'>
         <tr>
             <th><strong>ID</strong></th>
@@ -28,11 +28,11 @@ $productsList = $SAPS->ReadAll();
                 <td><?= $product->getBrand() ?></td>
                 <td><?= $product->getSpecification() ?></td>
                 <td><?= $product->getDescription() ?></td>
+                <td>$<?= $product->getPrice() ?></td>
                 <td><?= $product->getQuantity() ?></td>
-                <td><?= $product->getPrice() ?></td>
                 <td><?= $product->getImage() ?></td>
                 <td><?= $product->getCategory() ?></td>
-                <td><?= "<a href='product.php?id={$product->getId()}' class='product-link'>Click me!</a></td>"?>
+                <td><?= "<a href='product.php?id={$product->getId()}' class='btn btn-labeled btn-success'>Select</a></td>"?>
             </tr>
         <?php
         }

@@ -34,7 +34,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
     {
         try {
             $sql = "SELECT product_id, product_name, brand, specification, description,
-                           quantity, price, image, category FROM products WHERE product_id = ?";
+                           price, quantity, image, category FROM products WHERE product_id = ?";
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $product_id, PDO::PARAM_INT);
             $row->execute();
@@ -56,6 +56,6 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
     private function FetchProduct($row)
     {
         return new Product($row["product_id"], $row["product_name"], $row["brand"], $row["specification"],
-            $row["description"], $row["quantity"], $row["price"], $row["image"], $row["category"]);
+            $row["description"], $row["price"], $row["quantity"], $row["image"], $row["category"]);
     }
 }

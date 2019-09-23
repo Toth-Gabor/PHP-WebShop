@@ -21,6 +21,10 @@ $product = $SAPS->ReadOne($id);
         <li><?= $product->getCategory() ?></li>
     </ul>
 </div>
+    <div class="col-md-12">
+        <button type="button" class="btn btn-labeled btn-success">
+            <span class="btn-label"></span>Add to cart</button>
+    </div>
 <?php
 
 
