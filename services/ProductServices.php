@@ -3,5 +3,5 @@
 interface ProductServices{
 
     public function ReadAll();
-    public function ReadOne();
+    public function ReadOne($product_id);
 }
