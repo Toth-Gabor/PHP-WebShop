@@ -3,9 +3,12 @@
 include "services/simpleServices/SimpleProductServices.php";
 
 $SAPS = new SimpleProductServices();
+
 $productsList = $SAPS->ReadAll();
 
+
 ?>
+
 <div"> <!-- col-md-4 m-b-20px -->
     <table class='table table-hover table-responsive table-bordered'>
         <tr>
@@ -18,7 +21,7 @@ $productsList = $SAPS->ReadAll();
             <th><strong>Stock</strong></th>
             <th><strong>Image Url</strong></th>
             <th><strong>Category</strong></th>
-            <th><strong>Click?</strong></th>
+            <th><strong>Select</strong></th>
         </tr>
         <?php foreach ($productsList as $product){
             ?>

@@ -1,7 +1,7 @@
 <?php
 
-include_once "services/ProductServices.php";
-include_once "Database/Dao/DatabaseProductDao.php";
+include_once __DIR__ . "/../../Database/Dao/DatabaseProductDao.php";
+include_once __DIR__ . "/../../services/ProductServices.php";
 
 class SimpleProductServices implements ProductServices {
 
@@ -20,5 +20,10 @@ class SimpleProductServices implements ProductServices {
     public function ReadOne($product_id)
     {
         return $this->productDao->GetOneById($product_id);
+    }
+
+    public function ReadAllByIds($productIdList)
+    {
+        return $this->ReadAllByIds($productIdList);
     }
 }

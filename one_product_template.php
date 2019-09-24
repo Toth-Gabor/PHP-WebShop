@@ -1,11 +1,12 @@
 <?php
 
 include "services/simpleServices/SimpleProductServices.php";
-$SAPS = new SimpleProductServices();
+
+$services = new SimpleProductServices();
 // get id from query string
 $id = htmlspecialchars($_GET["id"]);
 // TODO: az id nem lehet null!!
-$product = $SAPS->ReadOne($id);
+$product = $services->ReadOne($id);
 
 ?>
 <div>
@@ -22,8 +23,8 @@ $product = $SAPS->ReadOne($id);
     </ul>
 </div>
     <div class="col-md-12">
-        <button type="button" class="btn btn-labeled btn-success">
-            <span class="btn-label"></span>Add to cart</button>
+        <a href="cart/add_to_cart.php?id=<?= $id ?>" type="button" class="btn btn-labeled btn-success">
+            <span class="btn-label"></span>Add to cart</a>
     </div>
 <?php
 

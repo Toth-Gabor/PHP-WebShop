@@ -18,7 +18,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <!-- link to the "Cart" page, highlight if current page is cart.php -->
-                <li <?php echo $page_title=="Index" ? "class='active'" : ""; ?>>
+                <li>
                     <a href="<?php echo $home_url; ?>">Home</a>
                 </li>
             </ul>
@@ -57,18 +57,18 @@
             else{
                 ?>
                 <ul class="nav navbar-nav navbar-right">
-                    <li <?php echo $page_title=="Cart" ? "class='active'" : ""; ?>>
+                    <li>
                         <a href="<?php echo $home_url; ?>cart/cart.php">
                             <span class="glyphicon 	glyphicon glyphicon-shopping-cart"></span> Cart
                         </a>
                     </li>
-                    <li <?php echo $page_title=="Login" ? "class='active'" : ""; ?>>
+                    <li>
                         <a href="<?php echo $home_url; ?>logger/login.php">
                             <span class="glyphicon glyphicon-log-in"></span> Log In
                         </a>
                     </li>
 
-                    <li <?php echo $page_title=="Register" ? "class='active'" : ""; ?>>
+                    <li>
                         <a href="<?php echo $home_url; ?>logger/register.php">
                             <span class="glyphicon glyphicon-check"></span> Register
                         </a>
