@@ -7,7 +7,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : "";
 
 $quantity = isset($_GET['quantity']) ? $_GET['quantity'] : 1;
 
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
+//$page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 // make quantity a minimum of 1
 $quantity = $quantity<=0 ? 1 : $quantity;
