@@ -26,4 +26,24 @@ class SimpleProductServices implements ProductServices {
     {
         return $this->ReadAllByIds($productIdList);
     }
+
+    public function AddToQty($cart_items)
+    {
+        // TODO: Implement AddToQty() method.
+    }
+
+    public function RemoveFromQty($cart_items)
+    {
+        // TODO: Implement RemoveFromQty() method.
+    }
+
+    public function ReadCurrentQty($product_id)
+    {
+         return $this->productDao->GetCurrentQuantity($product_id);
+    }
+
+    public function RefreshQty($new_qty, $product_id)
+    {
+        $this->RefreshQty($new_qty,$product_id);
+    }
 }
