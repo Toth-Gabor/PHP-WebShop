@@ -13,7 +13,7 @@ global $quantity;
             <div class='input-group'>
                 <input type='number' name='quantity' value='<?= $quantity?>' class='form-control cart-quantity' min='1' />
                 <span class='input-group-btn'>
-                    <button class='btn btn-primary' type='submit'>Update</button>
+                    <a href="update_cart.php?id=<?= $id?>" class='btn btn-primary' type='submit'>Update</a>
                 </span>
                 <span class='input-group-btn'>
                     <!--delete from cart-->
