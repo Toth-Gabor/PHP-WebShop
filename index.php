@@ -13,17 +13,21 @@ $action = isset($_GET['action']) ? $_GET['action'] : "";
 echo "<div class='col-md-12'>";
 if($action=='added'){
     echo "<div class='alert alert-info'>";
-    echo "Product was added to your cart!";
+        echo "Product was added to your cart!";
     echo "</div>";
 }
 
 if($action=='exists'){
     echo "<div class='alert alert-info'>";
-    echo "Product already exists in your cart!";
+        echo "Product already exists in your cart!";
     echo "</div>";
 }
-echo "</div>";
-
+if($action=='purchased') {
+    echo "<div class='alert alert-info'>";
+        echo "Thank you for your purchase! You can lay down, your products will arrive soon!";
+    echo "</div>";
+    unset($_SESSION['cart']);
+}
 include_once "all_products_template.php";
 
 echo "</div>";
