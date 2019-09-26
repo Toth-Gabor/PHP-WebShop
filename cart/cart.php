@@ -7,7 +7,7 @@ include_once __DIR__ . "/../cart/layout_head.php";
 include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
 $service = new SimpleProductServices();
 
-// c
+// block checkout button if user not logged in
 if (!isset($_SESSION['access_level'])){
     $block_checkout = "disabled";
     $checkout_text = "Please login first!";
@@ -16,18 +16,14 @@ if (!isset($_SESSION['access_level'])){
     $checkout_text = "Proceed to Checkout";
 }
 
-
 $action = isset($_GET['action']) ? $_GET['action'] : "";
-//$id = isset($_GET['id']) ? $_GET['id'] : "";
 
 echo "<div class='col-md-12'>";
         if($action=='removed'){
             echo "<div class='alert alert-info'>";
                 echo "Product was removed from your cart!";
             echo "</div>";
-        }
-
-        else if($action=='quantity_updated'){
+        }else if($action=='quantity_updated'){
             echo "<div class='alert alert-info'>";
                 echo "Product quantity was updated!";
             echo "</div>";
@@ -69,6 +65,7 @@ if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
                     $total += $sub_total;
             }
             echo "</table>";
+            echo "<hr class='style1'>";
             // Show total price and checkout button
             echo "<div class='col-md-8'></div>";
                 echo "<div class='pull-right'>";

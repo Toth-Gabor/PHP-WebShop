@@ -5,8 +5,6 @@ include "services/simpleServices/SimpleProductServices.php";
 $SAPS = new SimpleProductServices();
 
 $productsList = $SAPS->ReadAll();
-
-
 ?>
 
 <div"> <!-- col-md-4 m-b-20px -->
@@ -25,6 +23,14 @@ $productsList = $SAPS->ReadAll();
             <!--<th><strong>Add to Cart</strong></th>-->
         </tr>
         <?php foreach ($productsList as $product){
+            // check product stock
+            if ($product->getQuantity() == 0){
+                $block_checkout = "disabled";
+                $button_text = "Out of stock!";
+            } else{
+                $block_checkout = "";
+                $button_text = "Add to cart";
+            }
             ?>
             <tr>
                 <td><?= $product->getId() ?></td>
@@ -37,8 +43,8 @@ $productsList = $SAPS->ReadAll();
                 <!--<td><?= $product->getImage() ?></td>-->
                 <td><?= $product->getCategory() ?></td>
                 <td><?= "<a href='product.php?id={$product->getId()}' class='btn btn-labeled btn-info'>Select</a>"?>
-                <a href="cart/add_to_cart.php?id=<?= $product->getId() ?>" type="button" class="margin-1em-zero btn btn-labeled btn-success mt-5px">
-                    <span class="btn-label"></span>Add to cart</a>
+                <a href="cart/add_to_cart.php?id=<?= $product->getId() ?>" type="button" class="<?= $block_checkout?> margin-1em-zero btn btn-labeled btn-success mt-5px">
+                    <span class="btn-label"></span><?= $button_text?></a>
 
             </tr>
         <?php

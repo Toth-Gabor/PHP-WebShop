@@ -6,7 +6,6 @@ global $row_count;
 
 ?>
 
-<div class='col-md-8'>
 
         <tr>
             <td><h4><?= $row_count?></h4></td>
@@ -19,7 +18,7 @@ global $row_count;
                 </form>
             </td>
             <td><a href='remove_from_cart.php?id=<?= $id?>' class='btn btn-danger'>Delete</a></td>
-            <td><?php echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>"; ?></td>
+            <td class="pull-right"><?php echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>"; ?></td>
         </tr>
 
 

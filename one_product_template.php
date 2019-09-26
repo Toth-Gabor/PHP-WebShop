@@ -8,6 +8,14 @@ $id = htmlspecialchars($_GET["id"]);
 // TODO: az id nem lehet null!!
 $product = $services->ReadOne($id);
 
+// check product stock
+if ($product->getQuantity() == 0){
+    $block_add_to_cart = "disabled";
+    $button_text = "Out of stock!";
+} else{
+    $block_add_to_cart = "";
+    $button_text = "Add to cart";
+}
 ?>
 <div>
     <ul>
@@ -23,8 +31,8 @@ $product = $services->ReadOne($id);
     </ul>
 </div>
     <div class="col-md-12">
-        <a href="cart/add_to_cart.php?id=<?= $id ?>" type="button" class="btn btn-labeled btn-success">
-            <span class="btn-label"></span>Add to cart</a>
+        <a href="cart/add_to_cart.php?id=<?= $id ?>" type="button" class="<?= $block_add_to_cart?> btn btn-labeled btn-success">
+            <span class="btn-label"></span><?= $button_text?></a>
     </div>
 <?php
 
