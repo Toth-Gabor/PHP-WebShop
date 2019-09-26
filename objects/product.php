@@ -32,19 +32,9 @@ class product {
         return $this->id;
     }
 
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
-
     public function getName()
     {
         return $this->name;
-    }
-
-    public function setName($name): void
-    {
-        $this->name = $name;
     }
 
     public function getBrand()
@@ -52,19 +42,9 @@ class product {
         return $this->brand;
     }
 
-    public function setBrand($brand): void
-    {
-        $this->brand = $brand;
-    }
-
     public function getSpecification()
     {
         return $this->specification;
-    }
-
-    public function setSpecification($specification): void
-    {
-        $this->specification = $specification;
     }
 
     public function getDescription()
@@ -72,19 +52,9 @@ class product {
         return $this->description;
     }
 
-    public function setDescription($description): void
-    {
-        $this->description = $description;
-    }
-
     public function getPrice()
     {
         return $this->price;
-    }
-
-    public function setPrice($price): void
-    {
-        $this->price = $price;
     }
 
     public function getQuantity()
@@ -92,30 +62,13 @@ class product {
         return $this->quantity;
     }
 
-    public function setQuantity($quantity): void
-    {
-        $this->quantity = $quantity;
-    }
-
     public function getImage()
     {
         return $this->image;
-    }
-
-    public function setImage($image): void
-    {
-        $this->image = $image;
     }
 
     public function getCategory()
     {
         return $this->category;
     }
-
-    public function setCategory($category): void
-    {
-        $this->category = $category;
-    }
-
-
 }

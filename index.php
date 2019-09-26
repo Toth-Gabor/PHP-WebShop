@@ -26,6 +26,8 @@ if($action=='purchased') {
     echo "<div class='alert alert-info'>";
         echo "Thank you for your purchase! You can lay down, your products will arrive soon!";
     echo "</div>";
+    $order = json_encode($_SESSION['cart']);
+    var_dump($order);
     unset($_SESSION['cart']);
 }
 include_once "all_products_template.php";
