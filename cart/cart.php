@@ -8,6 +8,7 @@ include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
 $service = new SimpleProductServices();
 
 $action = isset($_GET['action']) ? $_GET['action'] : "";
+//$id = isset($_GET['id']) ? $_GET['id'] : "";
 
 echo "<div class='col-md-12'>";
         if($action=='removed'){
@@ -24,41 +25,51 @@ echo "<div class='col-md-12'>";
 echo "</div>";
 
 if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
-    <div class='col-md-12'>
-        <div class='alert alert-danger'>No products found in your cart</div>
-    </div>
+        <div class='col-md-12'>
+            <div class='alert alert-danger'>No products found in your cart</div>
+        </div>
     <?php
 } else {
-    $ids = array();
-    $total=0;
-    $item_count=0;
-    foreach($_SESSION['cart'] as $id=>$value){
-        echo "<div class='cart-row'>";
-        $quantity=$_SESSION['cart'][$id]['quantity'];
+    $total = 0;
+    $item_count = 0;
+    $row_count = 0;
+    ?>
+    <div class="width-50-percent" >
+        <table class='table table-hover table-responsive '>
+            <tr>
+                <th><h4><strong>#</strong></h4></th>
+                <th><h4><strong>Name</strong></h4></th>
+                <th><h4><strong>Update</strong></h4></th>
+                <th><h4><strong>Delete</strong></h4></th>
+                <th><h4><strong>Price</strong></h4></th>
+            </tr>
 
-        $cart_product = $service->ReadOne($id);
-        $name = $cart_product->getName();
-        $price = $cart_product->getPrice();
+            <?php foreach($_SESSION['cart'] as $id=>$value){
+                    $quantity=$_SESSION['cart'][$id]['quantity'];
+                    $row_count += 1;
+                    $cart_product = $service->ReadOne($id);
+                    $name = $cart_product->getName();
+                    $price = $cart_product->getPrice();
+                    $sub_total=$price*$quantity;
 
-        $sub_total=$price*$quantity;
-        // include one cart item template
-        include "cart_item_template.php";
-        $item_count += $quantity;
-        echo "</div>";
-        $total += $sub_total;
+                    // include one cart item template
+                    include "cart_item_template.php";
 
-
-
-    }
-    echo "<div class='col-md-8'></div>";
-    echo "<div class='col-md-4'>";
-        echo "<div class='cart-row'>";
-            echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
-            echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
-            echo "<a href='../index.php?action=purchased' class='btn btn-success m-b-10px'>";
-                echo "<span class='glyphicon glyphicon-shopping-cart'></span> Proceed to Checkout";
-            echo "</a>";
-    echo "</div>";
+                    $item_count += $quantity;
+                    $total += $sub_total;
+            }
+            echo "</table>";
+            // Show total price and checkout button
+            echo "<div class='col-md-8'></div>";
+                echo "<div class='pull-right'>";
+                    echo "<div class='float-right'>";
+                        echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
+                        echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
+                        echo "<a href='../index.php?action=purchased' class='{$block_checkout} btn btn-success m-b-10px' >";
+                            echo "<span class='glyphicon glyphicon-shopping-cart'></span> {$checkout_text}";
+                        echo "</a>";
+                echo "</div>";
+            echo "</div>";
     echo "</div>";
 }
 include '../layout_foot.php';
