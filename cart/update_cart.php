@@ -1,9 +1,8 @@
 <?php
 session_start();
-
 // get the product id
-$id = isset($_GET['id']) ? $_GET['id'] : 1;
-$quantity = isset($_GET['quantity']) ? $_GET['quantity'] : "";
+$id = isset($_POST['product_id']) ? $_POST['product_id'] : 1;
+$quantity = isset($_POST['quantity']) ? $_POST['quantity'] : "";
 
 // make quantity a minimum of 1
 $quantity=$quantity<=0 ? 1 : $quantity;

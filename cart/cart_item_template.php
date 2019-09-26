@@ -2,27 +2,25 @@
 global $name;
 global $price;
 global $quantity;
-?>
-<div class='col-md-8'>
-        <div class='product-name m-b-10px'>
-            <h4><?= $name ?></h4>
-        </div>
-        <!--update quantity-->
-        <form class='update-quantity-form'>
-            <div class='product-id' style='display:none;'><?= $id?></div>
-            <div class='input-group'>
-                <input type='number' name='quantity' value='<?= $quantity?>' class='form-control cart-quantity' min='1' />
-                <span class='input-group-btn'>
-                    <a href="update_cart.php?id=<?= $id?>" class='btn btn-primary' type='submit'>Update</a>
-                </span>
-                <span class='input-group-btn'>
-                    <!--delete from cart-->
-                    <a href='remove_from_cart.php?id=<?= $id?>' class='btn btn-danger'>Delete</a>
-                </span>
-            </div>
-        </form>
+global $row_count;
 
-    </div>
-        <div class='col-md-4'>
-            <?php echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>"; ?>
-        </div>
+?>
+
+<div class='col-md-8'>
+
+        <tr>
+            <td><h4><?= $row_count?></h4></td>
+            <td><h4><?= $name ?></h4></td>
+            <td>
+                <form class='update-quantity-form' action="update_cart.php" method="post">
+                    <input type="hidden" name="product_id" value="<?= $id?>">
+                    <input type='number' name='quantity' value='<?= $quantity?>' class='width-30-percent margin-top-40' min='1'>
+                    <button class='btn btn-primary btn-margin-right' type='submit'>Update</button>
+                </form>
+            </td>
+            <td><a href='remove_from_cart.php?id=<?= $id?>' class='btn btn-danger'>Delete</a></td>
+            <td><?php echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>"; ?></td>
+        </tr>
+
+
+

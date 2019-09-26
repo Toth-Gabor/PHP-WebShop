@@ -28,7 +28,14 @@
     position:relative;
 }
 
+.disabled{
+    pointer-events: none;
+}
+
+
 .width-30-percent{ width:30%; }
+.width-50-percent{ width:50%; }
+.width-40-percent{ width:40%; }
 .margin-left-1em{ margin:0 1em 0 0; }
 .width-20-em{ width: 20em; }
 .width-13-em{ width: 13em; }
