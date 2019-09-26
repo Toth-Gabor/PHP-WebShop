@@ -1,5 +1,6 @@
-DROP TABLE if exists `users` CASCADE ;
+DROP TABLE if exists `users` CASCADE;
 DROP TABLE IF EXISTS `products` CASCADE;
+DROP TABLE IF EXISTS `orders` CASCADE;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(32) NOT NULL,
@@ -27,6 +28,14 @@ CREATE TABLE products
     quantity      INTEGER        NOT NULL,
     image         TEXT,
     category      TEXT           NOT NULL
+);
+
+CREATE TABLE orders(
+    order_id SERIAL             NOT NULL PRIMARY KEY ,
+    user_id  INT                NOT NULL,
+    cart_item TEXT              NOT NULL,
+    status TEXT DEFAULT "pending",
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `contact_number`, `address`, `password`, `access_level`, `access_code`, `status`, `created`, `modified`) VALUES
