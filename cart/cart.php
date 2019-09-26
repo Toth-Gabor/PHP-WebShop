@@ -7,6 +7,16 @@ include_once __DIR__ . "/../cart/layout_head.php";
 include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
 $service = new SimpleProductServices();
 
+// c
+if (!isset($_SESSION['access_level'])){
+    $block_checkout = "disabled";
+    $checkout_text = "Please login first!";
+} else{
+    $block_checkout = "";
+    $checkout_text = "Proceed to Checkout";
+}
+
+
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 //$id = isset($_GET['id']) ? $_GET['id'] : "";
 
