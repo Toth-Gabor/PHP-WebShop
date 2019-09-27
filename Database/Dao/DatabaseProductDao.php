@@ -51,7 +51,22 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
 
     public function GetAllByCategory($category)
     {
-        // TODO: Implement GetAllByCategory() method.
+        try {
+            $productsList = array();
+            $sql = "SELECT product_id, product_name, brand, specification, description, 
+                           quantity, price, image, category FROM products WHERE category = ?";
+            $row = $this->conn->prepare($sql);
+            $row->bindParam(1, $category, PDO::PARAM_STR);
+            $row->execute();
+
+            while ($temp = $row->fetch()) {
+                $productsList[] = $this->FetchProduct($temp);
+            }
+            return $productsList;
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
     }
 
 
