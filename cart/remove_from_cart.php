@@ -14,7 +14,5 @@ if (count($_SESSION['cart']) == 0){
     unset($_SESSION['cart']);
     header('Location: index.php?action=removed&id=' . $id);
 }
-
-
 // redirect to product list and tell the user it was added to cart
 header('Location: cart.php?action=removed&id=' . $id);

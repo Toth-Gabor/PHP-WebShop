@@ -8,7 +8,7 @@ $productsList = $SAPS->ReadAll();
 ?>
 
 <div"> <!-- col-md-4 m-b-20px -->
-    <table class='table table-hover table-responsive table-bordered'>
+    <table class='table table-hover table-responsive '>
         <tr>
             <th><strong>ID</strong></th>
             <th><strong>Name</strong></th>
@@ -38,8 +38,8 @@ $productsList = $SAPS->ReadAll();
                 <td><?= $product->getBrand() ?></td>
                 <td><?= $product->getSpecification() ?></td>
                 <td><?= $product->getDescription() ?></td>
-                <td>$<?= $product->getPrice() ?></td>
-                <td><?= $product->getQuantity() ?></td>
+                <td><span class="pull-right">$<?= $product->getPrice() ?></span></td>
+                <td><span class="pull-right"><?= $product->getQuantity() ?></span></td>
                 <!--<td><?= $product->getImage() ?></td>-->
                 <td><?= $product->getCategory() ?></td>
                 <td><?= "<a href='product.php?id={$product->getId()}' class='btn btn-labeled btn-info'>Select</a>"?>

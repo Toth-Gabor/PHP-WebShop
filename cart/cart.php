@@ -2,7 +2,6 @@
 include_once "../config/core.php";
 
 $page_title = "Cart";
-
 include_once __DIR__ . "/../cart/layout_head.php";
 include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
 $service = new SimpleProductServices();
@@ -15,25 +14,22 @@ if (!isset($_SESSION['access_level'])){
     $block_checkout = "";
     $checkout_text = "Proceed to Checkout";
 }
-
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 
-echo "<div class='col-md-12'>";
-        if($action=='removed'){
-            echo "<div class='alert alert-info'>";
-                echo "Product was removed from your cart!";
-            echo "</div>";
-        }else if($action=='quantity_updated'){
-            echo "<div class='alert alert-info'>";
-                echo "Product quantity was updated!";
-            echo "</div>";
-        }
-echo "</div>";
-
+if($action=='removed'){?>
+    <script type="text/javascript">
+        swal('Info', 'The selected item has been removed from your <b style="color:deepskyblue;">Cart!</b>', 'info');
+    </script> <?php
+}else if($action=='quantity_updated'){?>
+    <script type="text/javascript">
+        swal('Info', 'The quantity of selected item has been <b style="color:deepskyblue;">Updated!</b>', 'info');
+    </script> <?php
+}
+// cart is empty alert
 if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
-        <div class='col-md-12'>
-            <div class='alert alert-danger'>No products found in your cart</div>
-        </div>
+    <script type="text/javascript">
+        swal('Info', 'Your cart is <b style="color:deepskyblue;">Empty!</b>', 'info');
+    </script>
     <?php
 } else {
     $total = 0;
@@ -42,6 +38,7 @@ if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
     ?>
     <div class="width-50-percent" >
         <table class='table table-hover table-responsive '>
+            <!--create headers-->
             <tr>
                 <th><h4><strong>#</strong></h4></th>
                 <th><h4><strong>Name</strong></h4></th>
@@ -49,7 +46,7 @@ if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
                 <th><h4><strong>Delete</strong></h4></th>
                 <th><h4><strong>Price</strong></h4></th>
             </tr>
-
+            <!--create cart items-->
             <?php foreach($_SESSION['cart'] as $id=>$value){
                     $quantity=$_SESSION['cart'][$id]['quantity'];
                     $row_count += 1;
