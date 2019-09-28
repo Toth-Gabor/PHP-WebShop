@@ -1,6 +1,6 @@
 <?php
 session_start();
-// get the product id
+// get the product id and quantity
 $id = isset($_POST['product_id']) ? $_POST['product_id'] : 1;
 $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : "";
 

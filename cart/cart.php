@@ -6,6 +6,7 @@ include_once __DIR__ . "/../cart/layout_head.php";
 include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
 $service = new SimpleProductServices();
 
+
 // block checkout button if user not logged in
 if (!isset($_SESSION['access_level'])){
     $block_checkout = "disabled";
@@ -18,14 +19,14 @@ $action = isset($_GET['action']) ? $_GET['action'] : "";
 
 if($action=='removed'){?>
     <script type="text/javascript">
-        swal('Info', 'The selected item has been removed from your <b style="color:deepskyblue;">Cart!</b>', 'info');
+        swal({title:'Info', text:'The selected item has been removed from your Cart!', type:'info', timer:1800});
     </script> <?php
 }else if($action=='quantity_updated'){?>
     <script type="text/javascript">
-        swal('Info', 'The quantity of selected item has been <b style="color:deepskyblue;">Updated!</b>', 'info');
+        swal({title:'Info', text:'The quantity of selected item has been Updated!', type:'info', timer:1800});
     </script> <?php
 }
-// cart is empty alert
+// alert if cart is empty
 if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
     <script type="text/javascript">
         swal('Info', 'Your cart is <b style="color:deepskyblue;">Empty!</b>', 'info');
@@ -37,15 +38,17 @@ if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
     $row_count = 0;
     ?>
     <div class="width-50-percent" >
-        <table class='table table-hover table-responsive '>
+        <table class='table table-striped table-responsive-md btn-table table-hover'>
             <!--create headers-->
-            <tr>
-                <th><h4><strong>#</strong></h4></th>
-                <th><h4><strong>Name</strong></h4></th>
-                <th><h4><strong>Update</strong></h4></th>
-                <th><h4><strong>Delete</strong></h4></th>
-                <th><h4><strong>Price</strong></h4></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th><h4><strong>#</strong></h4></th>
+                    <th><h4><strong>Name</strong></h4></th>
+                    <th><h4><strong>Update</strong></h4></th>
+                    <th><h4><strong>Delete</strong></h4></th>
+                    <th><h4><strong>Price</strong></h4></th>
+                </tr>
+            </thead>
             <!--create cart items-->
             <?php foreach($_SESSION['cart'] as $id=>$value){
                     $quantity=$_SESSION['cart'][$id]['quantity'];
