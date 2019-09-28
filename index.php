@@ -13,18 +13,18 @@ echo "<div class='col-md-12'>";
 
 if($action=='added'){?>
     <script type="text/javascript">
-        swal('Success', 'This item has been added to <b style="color:green;">Cart!</b>', 'success');
+        swal({title:'Success', text:'This item has been added to Cart!', type:'success', timer:1700});
     </script> <?php
 }
 
 if($action=='exists'){?>
     <script type="text/javascript">
-        swal('Warning', 'This item already exists in your <b style="color:coral;">Cart!</b>', 'warning');
+        swal({title:'Warning', text:'This item already exists in your Cart!', type:'warning', timer:1700});
     </script> <?php
 }
 if($action=='purchased') {?>
     <script type="text/javascript">
-        swal('Success', '<b style="color:green;">Thank you for your purchase! You can lay down, your products will arrive soon!!</b>', 'success');
+        swal({title:'Success', text:'Thank you for your purchase! You can lay down, your products will arrive soon!', type:'success', timer:2000);
     </script> <?php
 
     $order = json_encode($_SESSION['cart']);
