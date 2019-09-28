@@ -9,7 +9,6 @@ include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
 
 $service = new SimpleProductServices();
 
-
 // block checkout button if user not logged in
 if (!isset($_SESSION['access_level'])){
     $block_checkout = "disabled";
