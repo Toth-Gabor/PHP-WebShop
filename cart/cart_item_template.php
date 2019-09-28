@@ -11,7 +11,7 @@ global $row_count;
     <td>
         <form class='update-quantity-form' action="update_cart.php" method="post">
             <input type="hidden" name="product_id" value="<?= $id?>">
-            <input type='number' name='quantity' value='<?= $quantity?>' class='width-30-percent' min='1'>
+            <input type='number' name='quantity' value='<?= $quantity?>' class='btn row width-30-percent' min='1'>
             <button class='btn btn-primary btn-margin-right' type='submit'>Update</button>
         </form>
     </td>

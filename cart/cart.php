@@ -17,27 +17,30 @@ if (!isset($_SESSION['access_level'])){
 }
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 
+// alert if item was removed
 if($action=='removed'){?>
     <script type="text/javascript">
         swal({title:'Info', text:'The selected item has been removed from your Cart!', type:'info', timer:1800});
     </script> <?php
+
+// alert if quantity updated
 }else if($action=='quantity_updated'){?>
     <script type="text/javascript">
         swal({title:'Info', text:'The quantity of selected item has been Updated!', type:'info', timer:1800});
     </script> <?php
-}
+
 // alert if cart is empty
-if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
+}elseif (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
     <script type="text/javascript">
-        swal('Info', 'Your cart is <b style="color:deepskyblue;">Empty!</b>', 'info');
-    </script>
-    <?php
+        swal({title:'Info', text:'Your cart is Empty!', type:'info', timer:1800});
+    </script><?php
+
 } else {
     $total = 0;
     $item_count = 0;
     $row_count = 0;
     ?>
-    <div class="width-50-percent" >
+    <div class="width-80-percent" >
         <table class='table table-striped table-responsive-md btn-table table-hover'>
             <!--create headers-->
             <thead>
@@ -46,7 +49,7 @@ if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)){?>
                     <th><h4><strong>Name</strong></h4></th>
                     <th><h4><strong>Update</strong></h4></th>
                     <th><h4><strong>Delete</strong></h4></th>
-                    <th><h4><strong>Price</strong></h4></th>
+                    <th><h4><strong><span class="pull-right">Price</span></strong></h4></th>
                 </tr>
             </thead>
             <!--create cart items-->
