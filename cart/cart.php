@@ -2,8 +2,11 @@
 include_once "../config/core.php";
 
 $page_title = "Cart";
+
 include_once __DIR__ . "/../cart/layout_head.php";
+
 include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
+
 $service = new SimpleProductServices();
 
 
@@ -52,7 +55,7 @@ if($action=='removed'){?>
                     <th><h4><strong><span class="pull-right">Price</span></strong></h4></th>
                 </tr>
             </thead>
-            <!--create cart items-->
+            <!--read cart items-->
             <?php foreach($_SESSION['cart'] as $id=>$value){
                     $quantity=$_SESSION['cart'][$id]['quantity'];
                     $row_count += 1;
@@ -75,7 +78,7 @@ if($action=='removed'){?>
                     echo "<div class='float-right'>";
                         echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
                         echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
-                        echo "<a href='../index.php?action=purchased' class='{$block_checkout} btn btn-success m-b-10px' >";
+                        echo "<a href='check_out.php?action=purchased' class='{$block_checkout} btn btn-success m-b-10px' >";
                             echo "<span class='glyphicon glyphicon-shopping-cart'></span> {$checkout_text}";
                         echo "</a>";
                 echo "</div>";
