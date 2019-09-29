@@ -10,46 +10,41 @@ $access_denied=false;
 include_once "../logger/login_checker.php";
 
 if($_POST){
-    // email check will be here
-    include_once "../config/database.php";
-    include_once "../objects/user.php";
+    include_once "../services/simpleServices/SimpleUserServices.php";
 
-// get database connection
-    $database = new Database();
-    $db = $database->getConnection();
+    $sevices = new SimpleUserServices();
 
-// initialize objects
-    $user = new User($db);
+    // check if email and password are in the database
+    $email=$_POST['email'];
 
-// check if email and password are in the database
-    $user->email=$_POST['email'];
+    $email_exists = $sevices->CheckEmailExists($email);
 
-// check if email exists, also get user details using this emailExists() method
-    $email_exists = $user->emailExists();
+    $password = $_POST['password'];
 
-// login validation will be here
+    $user = $sevices->ReadUserByEmail($email);
+
+    $user->setStatus(1);
+
     // validate login
-    if ($email_exists && password_verify($_POST['password'], $user->password) && $user->status==1){
+    if ($email_exists && password_verify($_POST['password'], $user->getPassword()) && $user->getStatus()){
 
         // if it is, set the session value to true
         $_SESSION['logged_in'] = true;
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['access_level'] = $user->access_level;
-        $_SESSION['firstname'] = htmlspecialchars($user->firstname, ENT_QUOTES, 'UTF-8') ;
-        $_SESSION['lastname'] = $user->lastname;
+        $_SESSION['user_id'] = $user->getId();
+        $_SESSION['access_level'] = $user->getAccessLevel();
+        $_SESSION['firstname'] = htmlspecialchars($user->getFirstname(), ENT_QUOTES, 'UTF-8') ;
+        $_SESSION['lastname'] = $user->getLastname();
 
         // if access level is 'Admin', redirect to admin section
-        if($user->access_level=='Admin'){
+        if($user->getAccessLevel()=='Admin'){
             header("Location: {$home_url}admin/index.php?action=login_success");
         }
 
         // else, redirect only to 'Customer' section
-        elseif($user->access_level=='Customer')
+        elseif($user->getAccessLevel()=='Customer')
         {
             header("Location: {$home_url}index.php?action=login_success");
         }
-
-
     }
 
 // if username does not exist or password is wrong

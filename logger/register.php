@@ -1,5 +1,7 @@
 <?php
 // core configuration
+use MongoDB\BSON\Timestamp;
+
 include_once "../config/core.php";
 
 // set page title
@@ -9,8 +11,8 @@ $page_title = "Register";
 include_once "../logger/login_checker.php";
 
 // include classes
-include_once '../config/database.php';
-include_once '../objects/user.php';
+include_once '../services/simpleServices/SimpleUserServices.php';
+$sevices = new SimpleUserServices();
 include_once "../libs/php/utils.php";
 
 // include page header HTML
@@ -71,40 +73,36 @@ echo "<div class='col-md-12'>";
 // if form was posted
 if($_POST){
 
-    // get database connection
-    $database = new Database();
-    $db = $database->getConnection();
-
-    // initialize objects
-    $user = new User($db);
     $utils = new Utils();
 
     // set user email to detect if it already exists
-    $user->email=$_POST['email'];
+    $email=$_POST['email'];
 
     // check if email already exists
-    if($user->emailExists()){
+    if($sevices->CheckEmailExists($email)){
         echo "<div class='alert alert-danger'>";
-        echo "The email you specified is already registered. Please try again or <a href='{$home_url}login'>login.</a>";
+            echo "The email you specified is already registered. Please try again or <a href='{$home_url}login'>login.</a>";
         echo "</div>";
     }
 
     else{
-        // create user will be here
         // set values to object properties
-        $user->firstname=$_POST['firstname'];
-        $user->lastname=$_POST['lastname'];
-        $user->contact_number=$_POST['contact_number'];
-        $user->address=$_POST['address'];
-        $user->password=$_POST['password'];
-        $user->access_level='Customer';
-        $user->status=1;
-
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $contact_number = $_POST['contact_number'];
+        $address = $_POST['address'];
+        $password = $_POST['password'];
+        $access_level = 'Customer';
+        $status = 1;
+        $created_at = date('Y-m-d H:i:s');
+        $sevices->AddUser($firstname, $lastname, $email, $contact_number, $address,
+            $password, $access_level, null, $sevices, $created_at);
+        $isItCreated = true;
 // create the user
-        if($user->create()){
+        if($isItCreated){
 
             echo "<div class='alert alert-info'>";
-            echo "Successfully registered. <a href='{$home_url}login'>Please login</a>.";
+                echo "Successfully registered. <a href='{$home_url}login'>Please login</a>.";
             echo "</div>";
 
             // empty posted values
