@@ -12,7 +12,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
         $this->conn = parent::getConnection();
     }
 
-    public function Add($user_id, $cart_items)
+    public function CreateOrder($user_id, $cart_items)
     {
         try {
             $sql = "INSERT INTO orders (user_id, cart_items) VALUES (?,?);";
@@ -68,7 +68,15 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
 
     public function DeleteById($order_id)
     {
-        // TODO: Implement DeleteById() method.
+        try {
+            $sql = "DELETE FROM orders WHERE order_id = ?";
+            $row = $this->conn->prepare($sql);
+            $row->bindParam(1, $order_id, PDO::PARAM_INT);
+            $row->execute();
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
     }
 
     public function GetOrdersByDate($from, $to)
