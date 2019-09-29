@@ -2,9 +2,9 @@
 
 include "services/simpleServices/SimpleProductServices.php";
 
-$SAPS = new SimpleProductServices();
+$services = new SimpleProductServices();
 
-$productsList = $SAPS->ReadAll();
+$productsList = $services->ReadAll();
 ?>
 
 <div"> <!-- col-md-4 m-b-20px -->
@@ -44,8 +44,8 @@ $productsList = $SAPS->ReadAll();
                 <td><span class="pull-right"><?= $product->getQuantity() ?></span></td>
                 <!--<td><?= $product->getImage() ?></td>-->
                 <td><?= $product->getCategory() ?></td>
-                <td><?= "<a href='product.php?id={$product->getId()}' class='btn btn-labeled btn-info'>Select</a>"?>
-                <a href="cart/add_to_cart.php?id=<?= $product->getId() ?>" type="button" class="<?= $block_checkout?> btn btn-labeled btn-success">
+                <td><?= "<a href='product.php?id={$product->getId()}' class='btn btn-labeled btn-info btn-sm m-0'>Select</a>"?>
+                <a href="cart/add_to_cart.php?id=<?= $product->getId() ?>" type="button" class="<?= $block_checkout?> btn btn-labeled btn-success btn-sm m-0">
                     <span class="btn-label"></span><?= $button_text?></a>
 
             </tr>

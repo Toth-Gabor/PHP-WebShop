@@ -1,7 +1,7 @@
 <?php
 include_once "AbstractDao.php";
 include_once __DIR__ . "/../../Database/OrderDao.php";
-include_once __DIR__ . "/../../objects/product.php";
+include_once __DIR__ . "/../../objects/order.php";
 
 class DatabaseOrderDao extends AbstractDao implements OrderDao
 {
@@ -28,12 +28,37 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
 
     public function GetAll()
     {
-        // TODO: Implement GetAll() method.
+        try {
+            $ordersList = array();
+            $sql = "SELECT order_id, user_id, cart_items, status, created_at FROM orders";
+            $row = $this->conn->query($sql);
+            $row->execute();
+
+            while ($temp = $row->fetch()) {
+                $ordersList[] = $this->FetchOrder($temp);
+            }
+            return $ordersList;
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
     }
 
     public function GetOneById($order_id)
     {
-        // TODO: Implement GetOneById() method.
+        try {
+            $sql = "SELECT order_id, user_id, cart_items, status, created_at FROM orders WHERE order_id = ?";
+            $row = $this->conn->prepare($sql);
+            $row->bindParam(1, $order_id, PDO::PARAM_INT);
+            $row->execute();
+
+            while ($temp = $row->fetch()) {
+                return $this->FetchOrder($temp);
+            }
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
     }
 
     public function UpdateById($order_id)
