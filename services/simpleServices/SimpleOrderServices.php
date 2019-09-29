@@ -18,13 +18,19 @@ class SimpleOrderServices implements OrderServices{
 
     function AddOrder($user_id, $cart_items)
     {
-        $this->orderDao->Add($user_id, $cart_items);
+        $this->orderDao->CreateOrder($user_id, $cart_items);
     }
 
     public function ReadOneById($order_id)
     {
         return $this->orderDao->GetOneById($order_id);
     }
+
+    public function DeleteOrderById($order_id)
+    {
+        $this->orderDao->DeleteById($order_id);
+    }
+
 
     public function UpdateOrderStatus($order_id, $status)
     {
