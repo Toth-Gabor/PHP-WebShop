@@ -18,16 +18,17 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 
-
                 <!-- highlight for order related pages -->
-                <li <?php echo $page_title=="Admin Index" ? "class='active'" : ""; ?>>
+                <li>
                     <a href="<?php echo $home_url; ?>admin/index.php">Home</a>
                 </li>
 
                 <!-- highlight for user related pages -->
-                <li <?php
-                echo $page_title=="Users" ? "class='active'" : ""; ?> >
+                <li>
                     <a href="<?php echo $home_url; ?>admin/read_users.php">Users</a>
+                </li>
+                <li>
+                    <a href="<?php echo $home_url; ?>admin/orders.php">Orders</a>
                 </li>
             </ul>
 
