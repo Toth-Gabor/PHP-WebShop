@@ -35,7 +35,7 @@ foreach ($ordersList as $order){
         <td>
             <a href="../admin/one_order.php?id=<?= $order->id ?>" type="button" class="btn btn-info btn-sm m-0">Read</a>
         <td>
-            <a href='' class='btn btn-danger btn-sm m-0'>Delete</a>
+            <a href='delete_order.php?id=<?= $order->id ?>&action=deleted' class='btn btn-danger btn-sm m-0'>Delete</a>
         </td>
 
     </tr>

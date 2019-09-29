@@ -1,6 +1,7 @@
 <?php
 include_once "../config/core.php";
 
+
 $page_title="Read order details";
 
 include_once "admin_layout_head.php";

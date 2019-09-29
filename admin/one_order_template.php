@@ -1,7 +1,8 @@
 <?php
+$action = $_GET['action'];
 global $order_id;
 include_once "../services/simpleServices/SimpleOrderServices.php";
-$services = new SimpleOrderServices();
+$order_scs = new SimpleOrderServices();
 $current_order = $services->ReadOneById($order_id);
 
 
