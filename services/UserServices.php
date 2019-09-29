@@ -8,4 +8,5 @@ interface UserServices
     public function ReadUserById($user_id);
     public function ReadAllUser();
     public function CheckEmailExists($email);
+    public function ReadUserByEmail($email);
 }

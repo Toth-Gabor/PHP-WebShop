@@ -32,4 +32,11 @@ class SimpleUserServices implements UserServices
     {
         return $this->userdao->EmailExists($email);
     }
+
+    public function ReadUserByEmail($email)
+    {
+        return $this->userdao->GetUserByEmail($email);
+    }
+
+
 }
