@@ -3,14 +3,14 @@
 include_once "../config/core.php";
 // set page title
 $page_title="Admin Index";
+
 $require_login = true;
+
 //include_once "../logger/login_checker.php";
 // TODO: Login check!!!
 
-
-
 // include page header HTML
-include 'layout_head.php';
+include 'admin_layout_head.php';
 
 echo "<div class='col-md-12'>";
 
@@ -31,10 +31,6 @@ echo "<div class='col-md-12'>";
     }
     echo "<div class='alert alert-info'>";
         echo "Welcome back admin " . $_SESSION['firstname'];
-    echo "</div>";
-
-    echo "<div class='alert alert-info'>";
-        echo "Contents of your admin section will be here.";
     echo "</div>";
 
 echo "</div>";

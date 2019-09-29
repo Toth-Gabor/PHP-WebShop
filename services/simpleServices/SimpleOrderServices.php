@@ -11,9 +11,24 @@ class SimpleOrderServices implements OrderServices{
         $this->orderDao = new DatabaseOrderDao();
     }
 
+    public function ReadAllOrders()
+    {
+        return $this->orderDao->GetAll();
+    }
+
     function AddOrder($user_id, $cart_items)
     {
         $this->orderDao->Add($user_id, $cart_items);
+    }
+
+    public function ReadOneById($order_id)
+    {
+        return $this->orderDao->GetOneById($order_id);
+    }
+
+    public function UpdateOrderStatus($order_id, $status)
+    {
+        // TODO: Implement UpdateOrderStatus() method.
     }
 
 }
