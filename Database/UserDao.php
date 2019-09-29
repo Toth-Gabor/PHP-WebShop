@@ -8,5 +8,6 @@ interface UserDao
     public function GetUserById($user_id);
     public function GetAllUser();
     public function EmailExists($email);
+    public function GetUserByEmail($email);
 
 }

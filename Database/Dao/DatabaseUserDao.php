@@ -21,16 +21,18 @@ class DatabaseUserDao extends AbstractDao implements UserDao
                                         VALUES (?,?,?,?,?,?,?,?,?,?)";
 
             $row = $this->conn->prepare($sql);
-            $row->bindParam(1, $user_id, PDO::PARAM_STR);
-            $row->bindParam(2, $user_id, PDO::PARAM_STR);
-            $row->bindParam(3, $user_id, PDO::PARAM_STR);
-            $row->bindParam(4, $user_id, PDO::PARAM_INT);
-            $row->bindParam(5, $user_id, PDO::PARAM_STR);
-            $row->bindParam(6, $user_id, PDO::PARAM_STR);
-            $row->bindParam(7, $user_id, PDO::PARAM_STR);
-            $row->bindParam(8, $user_id, PDO::PARAM_STR);
-            $row->bindParam(9, $user_id, PDO::PARAM_STR);
-            $row->bindParam(10, $user_id, PDO::PARAM_STR);
+            $row->bindParam(1, $firstname, PDO::PARAM_STR);
+            $row->bindParam(2, $lastname, PDO::PARAM_STR);
+            $row->bindParam(3, $email, PDO::PARAM_STR);
+            $row->bindParam(4, $contact_number, PDO::PARAM_INT);
+            $row->bindParam(5, $address, PDO::PARAM_STR);
+            // hash password
+            $password_hash = password_hash($password, PASSWORD_BCRYPT);
+            $row->bindParam(6, $password_hash, PDO::PARAM_STR);
+            $row->bindParam(7, $access_level, PDO::PARAM_STR);
+            $row->bindParam(8, $access_code, PDO::PARAM_STR);
+            $row->bindParam(9, $status, PDO::PARAM_INT);
+            $row->bindParam(10, $created, PDO::PARAM_STR);
             $row->execute();
 
         } catch (PDOException $pe) {
@@ -82,7 +84,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
         try {
             $sql = "SELECT id FROM users WHERE email = ?";
             $row = $this->conn->prepare($sql);
-            $row->bindParam(1, $e-mail, PDO::PARAM_STR);
+            $row->bindParam(1, $email, PDO::PARAM_STR);
             $row->execute();
 
             if ($row->rowCount() == 0){
@@ -95,6 +97,25 @@ class DatabaseUserDao extends AbstractDao implements UserDao
             die("Could not connect to the database! " . $pe->getMessage());
         }
     }
+
+    public function GetUserByEmail($email)
+    {
+        try {
+            $sql = "SELECT id, firstname, lastname, email, contact_number, address, password, 
+                            access_level, access_code, status, created, modified FROM users WHERE email = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $email, PDO::PARAM_STR);
+            $stmt->execute();
+            while ($row = $stmt->fetch()){
+                return $this->FetchUser($row);
+            }
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
+        return null;
+    }
+
+
     private function FetchUser($row){
 
         return new User($row['id'], $row['firstname'], $row['lastname'], $row['email'],
