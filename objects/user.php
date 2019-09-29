@@ -21,11 +21,26 @@ class User{
     public $modified;
 
     // constructor
-    public function __construct($db){
+    /*public function __construct($db){
         $this->conn = $db;
+    }*/
+
+    public function __construct($id, $firstname, $lastname, $email, $contact_number, $address, $password, $access_level, $access_code, $status, $created, $modified)
+    {
+        $this->id = $id;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->email = $email;
+        $this->contact_number = $contact_number;
+        $this->address = $address;
+        $this->password = $password;
+        $this->access_level = $access_level;
+        $this->access_code = $access_code;
+        $this->status = $status;
+        $this->created = $created;
+        $this->modified = $modified;
     }
 
-    // check if given email exist in the database
     function emailExists(){
 
         // query to check if email exists
