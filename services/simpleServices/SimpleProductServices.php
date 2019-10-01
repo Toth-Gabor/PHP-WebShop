@@ -12,6 +12,12 @@ class SimpleProductServices implements ProductServices {
         $this->productDao = new DatabaseProductDao();
     }
 
+    public function CreateProduct($name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    {
+        $this->productDao->Add($name, $brand, $specification, $description, $price, $quantity, $image, $category);
+    }
+
+
     public function ReadAll()
     {
         return $this->productDao->GetAll();

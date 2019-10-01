@@ -9,4 +9,6 @@ interface ProductServices{
     public function RemoveFromQty($cart_items);
     public function ReadCurrentQty($product_id);
     public function RefreshQty($new_qty, $product_id);
+    public function CreateProduct($name, $brand, $specification, $description,
+                                  $price, $quantity, $image, $category);
 }
