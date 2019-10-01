@@ -9,5 +9,6 @@ interface UserDao
     public function GetAllUser();
     public function EmailExists($email);
     public function GetUserByEmail($email);
+    public function GetUsersBetween($from_record_num, $records_per_page);
 
 }

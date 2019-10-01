@@ -115,6 +115,29 @@ class DatabaseUserDao extends AbstractDao implements UserDao
         return null;
     }
 
+    public function GetUsersBetween($from_record_num, $records_per_page)
+    {
+        $userList = array();
+        try {
+            $sql = "SELECT id, firstname, lastname, email, contact_number, address, password, access_level, 
+                        access_code, status, created, modified FROM users ORDER BY id DESC LIMIT ?, ?";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $from_record_num, PDO::PARAM_INT);
+            $stmt->bindParam(2, $records_per_page, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            while ($temp = $stmt->fetch()) {
+                $userList[] = $this->FetchUser($temp);
+            }
+            return $userList;
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
+    }
+
 
     private function FetchUser($row){
 
