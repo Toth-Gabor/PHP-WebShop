@@ -44,7 +44,7 @@ $productsList = $services->ReadAll();
                 <td><span class="pull-right"><?= $product->getQuantity() ?></span></td>
                 <!--<td><?= $product->getImage() ?></td>-->
                 <td><?= $product->getCategory() ?></td>
-                <td><?= "<a href='product.php?id={$product->getId()}' class='btn btn-labeled btn-info btn-sm m-0'>Select</a>"?>
+                <td><?= "<a href='product.php?id={$product->getId()}' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>"?>
                 <a href="cart/add_to_cart.php?id=<?= $product->getId() ?>" type="button" class="<?= $block_checkout?> btn btn-labeled btn-success btn-sm m-0">
                     <span class="btn-label"></span><?= $button_text?></a>
 
