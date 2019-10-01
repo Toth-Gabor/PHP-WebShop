@@ -12,6 +12,29 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         $this->conn = parent::getConnection();
     }
 
+    public function Add($name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    {
+        try {
+            $sql = "INSERT INTO products (product_name, brand, specification, description, price, 
+                                quantity, image, category) VALUES (?,?,?,?,?,?,?,?)";
+
+            $row = $this->conn->prepare($sql);
+            $row->bindParam(1, $name, PDO::PARAM_STR);
+            $row->bindParam(2, $brand, PDO::PARAM_STR);
+            $row->bindParam(3, $specification, PDO::PARAM_STR);
+            $row->bindParam(4, $description, PDO::PARAM_STR);
+            $row->bindParam(5, $price, PDO::PARAM_INT);
+            $row->bindParam(6, $quantity, PDO::PARAM_INT);
+            $row->bindParam(7, $image, PDO::PARAM_STR);
+            $row->bindParam(8, $category, PDO::PARAM_STR);
+            $row->execute();
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
+    }
+
+
     public function GetAll()
     {
         try {
