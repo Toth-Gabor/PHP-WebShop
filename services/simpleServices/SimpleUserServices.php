@@ -38,5 +38,8 @@ class SimpleUserServices implements UserServices
         return $this->userdao->GetUserByEmail($email);
     }
 
-
+    public function ReadUsersBetween($from_record_num, $records_per_page)
+    {
+        return $this->userdao->GetUsersBetween($from_record_num, $records_per_page);
+    }
 }

@@ -9,4 +9,5 @@ interface UserServices
     public function ReadAllUser();
     public function CheckEmailExists($email);
     public function ReadUserByEmail($email);
+    public function ReadUsersBetween($from_record_num, $records_per_page);
 }
