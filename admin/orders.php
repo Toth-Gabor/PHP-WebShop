@@ -24,6 +24,14 @@ if ($action=='error') {?>
     </script> <?php
 }
 
+if($action=='processed') {?>
+
+    <script type="text/javascript">
+        swal({title: 'Processed', text: 'The selected order has been Processed!', type: 'info', timer: 1800});
+    </script> <?php
+}
+
+
 
 
 echo "<div class='container'>";

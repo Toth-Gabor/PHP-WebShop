@@ -18,12 +18,13 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 
-                <!-- highlight for order related pages -->
                 <li>
                     <a href="<?php echo $home_url; ?>admin/index.php">Home</a>
                 </li>
+                <li>
+                    <a href="<?php echo $home_url; ?>admin/create_product.php">Add product</a>
+                </li>
 
-                <!-- highlight for user related pages -->
                 <li>
                     <a href="<?php echo $home_url; ?>admin/read_users.php">Users</a>
                 </li>

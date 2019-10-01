@@ -1,4 +1,5 @@
 <?php
+global $user_srv;
 // display the table if the number of users retrieved was greater than zero
 if($num>0){
 
@@ -11,34 +12,24 @@ if($num>0){
             echo "<th>Email</th>";
             echo "<th>Contact Number</th>";
             echo "<th>Access Level</th>";
-            echo "<th>Actions</th>";
-
         echo "</tr>";
 
         // loop through the user records
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            extract($row);
+        foreach ($usersList as $user){
 
             // display user details
             echo "<tr>";
-                echo "<td>{$firstname}</td>";
-                echo "<td>{$lastname}</td>";
-                echo "<td>{$email}</td>";
-                echo "<td>{$contact_number}</td>";
-                echo "<td>{$access_level}</td>";
-                echo '<td><a href="" type="button" class="btn btn-primary">
-                        <span class="btn-label"></span>Read</a>';
-                            echo '<a href="" type="button" class="btn btn-labeled btn-success">
-                        <span class="btn-label"></span>Edit</a>';
-                            echo '<a href="" type="button" class="btn btn-labeled btn-danger">
-                        <span class="btn-label"></span>Delete</button>
-                    </td>';
+                echo "<td>{$user->getFirstname()}</td>";
+                echo "<td>{$user->getLastname()}</td>";
+                echo "<td>{$user->getEmail()}</td>";
+                echo "<td>{$user->getContactNumber()}</td>";
+                echo "<td>{$user->getAccessLevel()}</td>";
             echo "</tr>";
         }
     echo "</table>";
 
     $page_url="read_users.php?";
-    $total_rows = $user->countAll();
+    $total_rows = count($user_srv->ReadAllUser());
 
     // actual paging buttons
     include_once 'paging.php';
@@ -50,4 +41,3 @@ else{
         <strong>No users found.</strong>
     </div>";
 }
-?>

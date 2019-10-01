@@ -34,7 +34,7 @@ class SimpleOrderServices implements OrderServices{
 
     public function UpdateOrderStatus($order_id, $status)
     {
-        // TODO: Implement UpdateOrderStatus() method.
+        $this->orderDao->UpdateById($order_id, $status);
     }
 
 }
