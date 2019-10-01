@@ -61,9 +61,18 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
         }
     }
 
-    public function UpdateById($order_id)
+    public function UpdateById($order_id, $status)
     {
-        // TODO: Implement UpdateById() method.
+        try {
+            $sql = "UPDATE orders SET status = ? WHERE order_id = ?";
+            $row = $this->conn->prepare($sql);
+            $row->bindParam(1, $status, PDO::PARAM_STR);
+            $row->bindParam(2, $order_id, PDO::PARAM_INT);
+            $row->execute();
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
     }
 
     public function DeleteById($order_id)

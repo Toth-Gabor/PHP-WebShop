@@ -1,15 +1,12 @@
 <?php
 
-// TODO: valamiért nem lehet elérni a gettereket az order_template-ben!
-
-
 class Order{
 
-    public $id;
-    public $user_id;
-    public $cart_items;
-    public $status;
-    public $created_at;
+    private $id;
+    private $user_id;
+    private $cart_items;
+    private $status;
+    private $created_at;
 
     public function __construct($id, $user_id, $cart_items, $status, $created_at)
     {
