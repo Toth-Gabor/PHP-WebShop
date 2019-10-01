@@ -6,9 +6,6 @@ $page_title="Admin Index";
 
 $require_login = true;
 
-//include_once "../logger/login_checker.php";
-// TODO: Login check!!!
-
 // include page header HTML
 include 'admin_layout_head.php';
 
@@ -23,6 +20,11 @@ echo "<div class='col-md-12'>";
             echo "<strong>You</strong> are already logged in.";
         echo "</div>";
     }
+    if($action=='added'){
+        echo "<div class='alert alert-info'>";
+            echo "Product has been <strong>Added</strong> to database.";
+        echo "</div>";
+    }
 
     else if($action=='logged_in_as_admin'){
         echo "<div class='alert alert-info'>";
@@ -33,8 +35,8 @@ echo "<div class='col-md-12'>";
         echo "Welcome back admin " . $_SESSION['firstname'];
     echo "</div>";
 
+
 echo "</div>";
 
 // include page footer HTML
 include_once '../layout_foot.php';
-?>

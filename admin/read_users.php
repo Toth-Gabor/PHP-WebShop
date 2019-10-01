@@ -2,21 +2,9 @@
 // core configuration
 include_once "../config/core.php";
 
-// check if logged in as admin
-//include_once "../logger/login_checker.php";
-// TODO: Login check!!!
+include_once "../services/simpleServices/SimpleUserServices.php";
 
-
-// include classes
-include_once '../config/database.php';
-include_once '../objects/user.php';
-
-// get database connection
-$database = new Database();
-$db = $database->getConnection();
-
-// initialize objects
-$user = new User($db);
+$user_srv = new SimpleUserServices();
 
 // set page title
 $page_title = "Users";
@@ -27,10 +15,10 @@ include_once "admin_layout_head.php";
 echo "<div class='col-md-12'>";
 
 // read all users from the database
-$stmt = $user->readAll($from_record_num, $records_per_page);
+$usersList = $user_srv->ReadUsersBetween($from_record_num, $records_per_page);
 
 // count retrieved users
-$num = $stmt->rowCount();
+$num = count($usersList);
 
 // to identify page for paging
 $page_url="read_users.php?";
@@ -42,4 +30,3 @@ echo "</div>";
 
 // include page footer HTML
 include_once "../layout_foot.php";
-?>
