@@ -17,6 +17,10 @@ class SimpleProductServices implements ProductServices {
         $this->productDao->Create($name, $brand, $specification, $description, $price, $quantity, $image, $category);
     }
 
+    public function RemoveById($product_id)
+    {
+        $this->productDao->DeleteById($product_id);
+    }
 
     public function ReadAll()
     {
@@ -31,16 +35,6 @@ class SimpleProductServices implements ProductServices {
     public function ReadAllByIds($productIdList)
     {
         return $this->ReadAllByIds($productIdList);
-    }
-
-    public function AddToQty($cart_items)
-    {
-        // TODO: Implement AddToQty() method.
-    }
-
-    public function RemoveFromQty($cart_items)
-    {
-        // TODO: Implement RemoveFromQty() method.
     }
 
     public function ReadCurrentQty($product_id)

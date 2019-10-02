@@ -34,6 +34,19 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         }
     }
 
+    public function DeleteById($product_id)
+    {
+        try {
+            $sql = "DELETE FROM products WHERE product_id = ?";
+            $row = $this->conn->prepare($sql);
+            $row->bindParam(1, $product_id, PDO::PARAM_INT);
+            $row->execute();
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
+    }
+
 
     public function GetAll()
     {
@@ -92,7 +105,6 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         }
     }
 
-
     public function GetAllByIds($productIdList)
     {
         try {
@@ -109,20 +121,6 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
             die("Could not connect to the database! " . $pe->getMessage());
         }
         return null;
-    }
-
-    public function DecrementQty($product_id, $cart_qty)
-    {
-        $current_qty = $this->GetCurrentQuantity($product_id);
-        $new_qty = $current_qty - $cart_qty;
-        $this->UpdateQty($new_qty, $product_id);
-    }
-
-    public function IncrementQty($product_id, $cart_qty)
-    {
-        $current_qty = $this->GetCurrentQuantity($product_id);
-        $new_qty = $current_qty + $cart_qty;
-        $this->UpdateQty($new_qty, $product_id);
     }
 
     public function UpdateQty($new_qty, $product_id)
