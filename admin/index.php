@@ -20,23 +20,44 @@ echo "<div class='col-md-12'>";
             echo "<strong>You</strong> are already logged in.";
         echo "</div>";
     }
+
     if($action=='added'){
         echo "<div class='alert alert-info'>";
             echo "Product has been <strong>Added</strong> to database.";
         echo "</div>";
     }
 
-    else if($action=='logged_in_as_admin'){
+    if($action=='logged_in_as_admin'){
         echo "<div class='alert alert-info'>";
             echo "<strong>You</strong> are logged in as admin.";
         echo "</div>";
     }
-    echo "<div class='alert alert-info'>";
-        echo "Welcome back admin " . $_SESSION['firstname'];
-    echo "</div>";
+
+    // alert if product was deleted
+    if($action=='deleted') {?>
+
+        <script type="text/javascript">
+            swal({title: 'Deleted', text: 'The selected product has been Deleted!', type: 'info', timer: 1800});
+        </script> <?php
+    }
+
+    if ($action=='error') {?>
+
+        <script type="text/javascript">
+            swal({title: 'Error', text: 'The selected product has NOT been Deleted!', type: 'error', timer: 1800});
+        </script> <?php
+    }
+
+    if($action=='processed') {?>
+
+        <script type="text/javascript">
+            swal({title: 'Edited', text: 'The selected product has been Updated!', type: 'info', timer: 1800});
+        </script> <?php
+    }
+
 
 
 echo "</div>";
-
+include_once "../all_products_template.php";
 // include page footer HTML
 include_once '../layout_foot.php';
