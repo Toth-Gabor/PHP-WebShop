@@ -5,13 +5,16 @@ $page_title = "Create product";
 
 include_once "admin_layout_head.php";
 
+if (isset($_GET['message'])){
+    echo $_GET['message'];
+}
 
 ?>
     <main class="my-form">
         <div class="cotainer">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form name="my-form" action="add_product_to_db.php" method="post">
+                    <form action="add_product_to_db.php" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="name" class="col-lg-3 col-form-label text-md-right">
                                 Name</label>
@@ -64,7 +67,7 @@ include_once "admin_layout_head.php";
                             <label for="image" class="col-lg-3 col-form-label text-md-right">
                                 Image Url</label>
                             <div class="col-md-6">
-                                <input type="text" name="image" class="form-control" required>
+                                <input type="file" name="image">
                             </div>
                         </div>
 
