@@ -24,7 +24,6 @@
                 <li>
                     <a href="<?php echo $home_url; ?>admin/create_product.php">Add product</a>
                 </li>
-
                 <li>
                     <a href="<?php echo $home_url; ?>admin/read_users.php">Users</a>
                 </li>
