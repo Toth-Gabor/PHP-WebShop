@@ -11,6 +11,6 @@ interface ProductDao
     public function IncrementQty($product_id, $cart_qty);
     public function GetCurrentQuantity($product_id);
     public function UpdateQty($new_qty, $product_id);
-    public function Add($name, $brand, $specification, $description,
-                        $price, $quantity, $image, $category);
+    public function Create($name, $brand, $specification, $description,
+                           $price, $quantity, $image, $category);
 }

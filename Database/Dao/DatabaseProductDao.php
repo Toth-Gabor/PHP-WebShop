@@ -12,7 +12,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         $this->conn = parent::getConnection();
     }
 
-    public function Add($name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    public function Create($name, $brand, $specification, $description, $price, $quantity, $image, $category)
     {
         try {
             $sql = "INSERT INTO products (product_name, brand, specification, description, price, 

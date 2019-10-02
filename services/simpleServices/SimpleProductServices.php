@@ -14,7 +14,7 @@ class SimpleProductServices implements ProductServices {
 
     public function CreateProduct($name, $brand, $specification, $description, $price, $quantity, $image, $category)
     {
-        $this->productDao->Add($name, $brand, $specification, $description, $price, $quantity, $image, $category);
+        $this->productDao->Create($name, $brand, $specification, $description, $price, $quantity, $image, $category);
     }
 
 
