@@ -13,7 +13,7 @@ class Utils{
         if($image){
 
             // sha1_file() function is used to make a unique file name
-            $target_directory = "uploads/";
+            $target_directory = "../uploads/";
             $target_file = $target_directory . $image;
             $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 

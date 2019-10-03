@@ -2,7 +2,7 @@
 // core configuration
 include_once "../config/core.php";
 // set page title
-$page_title="Admin Index";
+$page_title="All products";
 
 $require_login = true;
 
