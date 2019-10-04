@@ -4,9 +4,16 @@ include_once "../config/core.php";
 $page_title = "Create product";
 
 include_once "admin_layout_head.php";
+$action = isset($_GET['action']) ? $_GET['action'] : "";
 
 if (isset($_GET['message'])){
     echo $_GET['message'];
+}
+
+if ($action == "wrong_input"){?>
+    <script type="text/javascript">
+        swal({title:'Input Error', text:'The quantity and price fields can only be positive and the price cannot be less than 1!', type:'warning'});
+    </script> <?php
 }
 
 ?>
