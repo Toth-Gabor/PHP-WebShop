@@ -11,20 +11,25 @@ $specification = $_POST['specification'];
 $description = $_POST['description'];
 $price = $_POST['price'];
 $quantity = $_POST['stock'];
-$image=!empty($_FILES["image"]["name"])
+$image = !empty($_FILES["image"]["name"])
     ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"]) : "";
 $message = $ulils->uploadPhoto($image);
 
 $category = $_POST['category'];
 
-if ($message == ""){
-    // add to database
-    $imagePath = $_SESSION['filepath'];
-    $product_srv->CreateProduct($name, $brand, $specification, $description, $price, $quantity, $imagePath, $category);
+$imagePath = $_SESSION['filepath'];
+
+$isValid = $product_srv->CreateProduct($name, $brand, $specification, $description, $price, $quantity, $imagePath, $category);
+
+if ($message == "" && $isValid) {
 
     header('Location: ../admin/index.php?action=added');
 } else {
-    header('Location: ../admin/create_product.php?message=' . $message);
+    // redirect to create_product page
+    header('Location: create_product.php?action=wrong_input&message=' . $message);
 }
+
+
+
 
 
