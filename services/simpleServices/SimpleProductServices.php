@@ -14,7 +14,16 @@ class SimpleProductServices implements ProductServices {
 
     public function CreateProduct($name, $brand, $specification, $description, $price, $quantity, $image, $category)
     {
-        $this->productDao->Create($name, $brand, $specification, $description, $price, $quantity, $image, $category);
+        $isValid = true;
+
+        // check price and quantity inputs
+        if ($price > 0 && $quantity >= 0){
+            $this->productDao->Create($name, $brand, $specification, $description, $price, $quantity, $image, $category);
+        } else {
+            $isValid = false;
+        }
+        return $isValid;
+
     }
 
     public function RemoveById($product_id)

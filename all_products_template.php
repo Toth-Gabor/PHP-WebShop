@@ -3,7 +3,6 @@
 include "services/simpleServices/SimpleProductServices.php";
 
 $services = new SimpleProductServices();
-
 $hide_delete_button = "";
 $hide_add_button = "";
 // show/hide buttons depend on access level
@@ -56,10 +55,9 @@ $productsList = $services->ReadAll();
                 <td><?= $product->getCategory() ?></td>
                 <td>
                     <?= "<a href='product.php?id={$product->getId()}' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>"?>
-                         <a href="cart/add_to_cart.php?id=<?= $product->getId() ?>" type="button" class="<?= $block_checkout . " " .  $hide_add_button ?>  btn btn-labeled btn-success btn-sm m-0">
+                         <a href="cart/add_to_cart.php?id=<?= $product->getId() ?>" type="button" class="<?= $block_checkout ?>  btn btn-labeled btn-success btn-sm m-0">
                             <span class="btn-label"></span><?= $button_text?></a>
-                         <a href="delete_product.php?id=<?= $product->getId() ?>" type="button" class="<?= $hide_delete_button?> btn btn-labeled btn-danger btn-sm m-0">
-                            <span class="btn-label"></span>Delete</a>
+
                 </td>
             </tr>
         <?php
