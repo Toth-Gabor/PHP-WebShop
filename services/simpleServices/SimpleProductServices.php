@@ -46,6 +46,12 @@ class SimpleProductServices implements ProductServices {
         return $this->ReadAllByIds($productIdList);
     }
 
+    public function ReadAllByCategory($category)
+    {
+        return $this->productDao->GetAllByCategory($category);
+    }
+
+
     public function ReadCurrentQty($product_id)
     {
          return $this->productDao->GetCurrentQuantity($product_id);
