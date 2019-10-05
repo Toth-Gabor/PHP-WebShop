@@ -1,6 +1,6 @@
 <?php
-include_once "../services/simpleServices/SimpleProductServices.php";
-include_once "../libs/php/utils.php";
+include_once "../../services/simpleServices/SimpleProductServices.php";
+include_once "../../libs/php/utils.php";
 $ulils = new Utils();
 
 $product_srv = new SimpleProductServices();
@@ -23,7 +23,7 @@ $isValid = $product_srv->CreateProduct($name, $brand, $specification, $descripti
 
 if ($message == "" && $isValid) {
 
-    header('Location: ../admin/index.php?action=added');
+    header('Location: ../../admin/index.php?action=added');
 } else {
     // redirect to create_product page
     header('Location: create_product.php?action=wrong_input&message=' . $message);

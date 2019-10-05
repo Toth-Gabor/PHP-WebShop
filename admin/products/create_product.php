@@ -1,9 +1,9 @@
 <?php
-include_once "../config/core.php";
+include_once "../../config/core.php";
 
 $page_title = "Create product";
 
-include_once "admin_layout_head.php";
+include_once "../admin_layout_head.php";
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 
 if (isset($_GET['message'])){
@@ -99,4 +99,4 @@ if ($action == "wrong_input"){?>
 
 <?php
 
-include_once "../layout_foot.php";
+include_once "../../layout_foot.php";

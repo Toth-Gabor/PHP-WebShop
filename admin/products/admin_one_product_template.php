@@ -1,6 +1,6 @@
 <?php
 
-include "../services/simpleServices/SimpleProductServices.php";
+include "../../services/simpleServices/SimpleProductServices.php";
 global $home_url;
 $services = new SimpleProductServices();
 // get id from query string
@@ -28,7 +28,7 @@ $product = $services->ReadOne($id);
 </div>
 
     <div class="col-md-4">
-        <img onerror="this.src='../uploads/default.jpg'" src='../<?= $product->getImage() ?>' style='width:300px;' />
+        <img onerror="this.src='../../uploads/default.jpg'" src='../../<?= $product->getImage() ?>' style='width:300px;' />
     </div>
 
 <?php

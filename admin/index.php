@@ -58,6 +58,6 @@ echo "<div class='col-md-12'>";
 
 
 echo "</div>";
-include_once "admin_all_products_template.php";
+include_once "products/admin_all_products_template.php";
 // include page footer HTML
 include_once '../layout_foot.php';
