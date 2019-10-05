@@ -18,7 +18,7 @@ if ($action == "wrong_input"){?>
 
 ?>
     <main class="my-form">
-        <div class="cotainer">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <form action="add_product_to_db.php" method="post" enctype="multipart/form-data">

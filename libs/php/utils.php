@@ -13,7 +13,7 @@ class Utils{
         if($image){
 
             // sha1_file() function is used to make a unique file name
-            $target_directory = "../uploads/";
+            $target_directory = "../../uploads/";
             $target_file = $target_directory . $image;
             $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 
@@ -56,7 +56,7 @@ class Utils{
                 if(move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
                     // it means photo was uploaded
                     // add filePath to session
-                    $_SESSION['filepath'] = $target_file;
+                    $_SESSION['filepath'] = "uploads/" . $image;
                     
                 }else{
                     $result_message.="<div class='alert alert-danger'>";

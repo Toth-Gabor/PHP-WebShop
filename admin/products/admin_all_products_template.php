@@ -6,6 +6,7 @@ $services = new SimpleProductServices();
 
 $hide_delete_button = "";
 $hide_add_button = "";
+
 // show/hide buttons depend on access level
 if(!isset($_SESSION['access_level']) || $_SESSION['access_level']!="Admin"){
     $hide_delete_button = "hidden";

@@ -28,7 +28,7 @@ $product = $services->ReadOne($id);
 </div>
 
     <div class="col-md-4">
-        <img onerror="this.src='../../uploads/default.jpg'" src='../../<?= $product->getImage() ?>' style='width:300px;' />
+        <img onerror="this.src='../../uploads/default.jpg'" src='../../<?= $product->getImage() ?>' style='width:300px; height:auto' />
     </div>
 
 <?php

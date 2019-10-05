@@ -1,21 +1,5 @@
 <?php
-include_once "../../services/simpleServices/SimpleProductServices.php";
-include_once "../../libs/php/utils.php";
-$ulils = new Utils();
-
-$product_srv = new SimpleProductServices();
-// get info from post
-$name = $_POST['name'];
-$brand = $_POST['brand'];
-$specification = $_POST['specification'];
-$description = $_POST['description'];
-$price = $_POST['price'];
-$quantity = $_POST['stock'];
-$image = !empty($_FILES["image"]["name"])
-    ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"]) : "";
-$message = $ulils->uploadPhoto($image);
-
-$category = $_POST['category'];
+include_once "get_new_product_fields.php";
 
 $imagePath = $_SESSION['filepath'];
 
