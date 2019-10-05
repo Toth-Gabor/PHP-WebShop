@@ -35,6 +35,7 @@ $categories = $product_srv->ReadAllCategories();
                         <?php foreach ($categories as $category){?>
                           <li><a href='index.php?category=<?= $category['category']?>'><?= $category['category']?></a></li>
                         <?php }?>
+                        <li><a href='index.php?category='>All</a></li>
                     </ul>
                 </li>
             </ul>

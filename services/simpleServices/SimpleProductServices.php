@@ -51,7 +51,6 @@ class SimpleProductServices implements ProductServices {
         return $this->productDao->GetAllByCategory($category);
     }
 
-
     public function ReadCurrentQty($product_id)
     {
          return $this->productDao->GetCurrentQuantity($product_id);
@@ -65,6 +64,18 @@ class SimpleProductServices implements ProductServices {
     public function ReadAllCategories()
     {
         return $this->productDao->GetAllCategories();
+    }
+
+    public function EditProduct($product_id, $name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    {
+        $isValid = true;
+        // check price and quantity inputs
+        if ($price > 0 && $quantity >= 0){
+            $this->productDao->UpdateProduct($product_id, $name, $brand, $specification, $description, $price, $quantity, $image, $category);
+        } else {
+            $isValid = false;
+        }
+        return $isValid;
     }
 
 
