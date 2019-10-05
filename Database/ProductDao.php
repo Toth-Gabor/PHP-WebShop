@@ -12,4 +12,5 @@ interface ProductDao
     public function Create($name, $brand, $specification, $description,
                            $price, $quantity, $image, $category);
     public function DeleteById($product_id);
+    public function GetAllCategories();
 }

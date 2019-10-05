@@ -154,6 +154,25 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         return null;
     }
 
+    public function GetAllCategories()
+    {
+        try {
+            $categoryList = array();
+            $sql = "SELECT DISTINCT category FROM products";
+            $row = $this->conn->query($sql);
+            $row->execute();
+
+            while ($temp = $row->fetch()) {
+                $categoryList[] = $temp;
+            }
+            return $categoryList;
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
+    }
+
+
     private function FetchProduct($row)
     {
         return new Product($row["product_id"], $row["product_name"], $row["brand"], $row["specification"],
