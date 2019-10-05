@@ -1,11 +1,17 @@
 <?php
 
-include "services/simpleServices/SimpleProductServices.php";
+global $product_srv;
+global $category;
 
-$services = new SimpleProductServices();
 $hide_add_button = "";
-// get all products
-$productsList = $services->ReadAll();
+
+if ($category != ""){
+    // get category filtered products
+    $productsList = $product_srv->ReadAllByCategory($category);
+} else {
+    // get all products
+    $productsList = $product_srv->ReadAll();
+}
 
 echo "<div class='container-fluid'>";
 

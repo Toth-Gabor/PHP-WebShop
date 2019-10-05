@@ -8,6 +8,8 @@ $page_title="Index";
 // include page header HTML
 include_once 'layout_head.php';
 
+$category = isset($_GET['category']) ? ($_GET['category']) : "";
+
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 echo "<div class='col-md-12'>";
 

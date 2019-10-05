@@ -1,5 +1,14 @@
+<?php
+include_once "services/simpleServices/SimpleProductServices.php";
+
+$product_srv = new SimpleProductServices();
+
+$categories = $product_srv->ReadAllCategories();
+?>
+
 <!-- navbar -->
-<div class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation" style="background-color: -moz-mac-accentdarkshadow">
+<div class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation"
+     style="background-color: -moz-mac-accentdarkshadow">
     <div class="container-fluid">
 
         <div class="navbar-header">
@@ -18,6 +27,16 @@
                 <li>
                     <a href="<?php echo $home_url; ?>" role="button"><span class="glyphicon glyphicon-home"></span> Home</a>
                 </li>
+                <li>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="glyphicon glyphicon-list"></span> Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <!-- create categories drop down menu-->
+                        <?php foreach ($categories as $category){?>
+                          <li><a href='index.php?category=<?= $category['category']?>'><?= $category['category']?></a></li>
+                        <?php }?>
+                    </ul>
+                </li>
             </ul>
 
             <?php
@@ -27,13 +46,13 @@
             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true && $_SESSION['access_level'] == 'Customer') {
                 ?>
                 <ul class="nav navbar-nav navbar-right">
-                    <li <?php echo $page_title == "Cart" ? "class='active'" : ""; ?>>
+                    <li>
                         <a href="<?php echo $home_url; ?>cart/cart.php">
                             <span class="glyphicon glyphicon-shopping-cart"></span> Cart
                         </a>
                     </li>
 
-                    <li <?php echo $page_title == "Edit Profile" ? "class='active'" : ""; ?>>
+                    <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             &nbsp;&nbsp;<?php echo $_SESSION['firstname']; ?>
@@ -51,18 +70,18 @@
             else {
                 ?>
                 <ul class="nav navbar-nav navbar-right">
-                    <li <?php echo $page_title == "Cart" ? "class='active'" : ""; ?>>
+                    <li>
                         <a href="<?php echo $home_url; ?>cart/cart.php">
-                            <span class="glyphicon 	glyphicon glyphicon-shopping-cart"></span> Cart
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Cart
                         </a>
                     </li>
-                    <li <?php echo $page_title == "Login" ? "class='active'" : ""; ?>>
+                    <li>
                         <a href="<?php echo $home_url; ?>logger/login.php">
                             <span class="glyphicon glyphicon-log-in"></span> Log In
                         </a>
                     </li>
 
-                    <li <?php echo $page_title == "Register" ? "class='active'" : ""; ?>>
+                    <li>
                         <a href="<?php echo $home_url; ?>logger/register.php">
                             <span class="glyphicon glyphicon-check"></span> Register
                         </a>
