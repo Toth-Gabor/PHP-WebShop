@@ -33,7 +33,6 @@ echo "<div class='col-md-12'>";
         echo "</div>";
     }
 
-    // alert if product was deleted
     if($action=='deleted') {?>
 
         <script type="text/javascript">
@@ -48,10 +47,10 @@ echo "<div class='col-md-12'>";
         </script> <?php
     }
 
-    if($action=='processed') {?>
+    if($action=='updated') {?>
 
         <script type="text/javascript">
-            swal({title: 'Edited', text: 'The selected product has been Updated!', type: 'info', timer: 1800});
+            swal({title: 'Updated', text: 'The selected product has been Updated!', type: 'info', timer: 1800});
         </script> <?php
     }
 
