@@ -123,7 +123,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         return null;
     }
 
-    public function UpdateQty($new_qty, $product_id)
+    /*public function UpdateQty($new_qty, $product_id)
     {
         try {
             $sql = "UPDATE products SET quantity = ?  WHERE product_id = ?";
@@ -135,7 +135,32 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         } catch (PDOException $pe) {
             die("Could not connect to the database! " . $pe->getMessage());
         }
+    }*/
+
+    public function UpdateProduct($product_id, $name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    {
+        try {
+            $sql = "UPDATE products SET product_name = ?, brand = ?, specification = ?, 
+                    description = ?, price = ?, quantity = ?, image = ?, category = ?
+                    WHERE product_id = ?";
+
+            $row = $this->conn->prepare($sql);
+            $row->bindParam(1, $name, PDO::PARAM_STR);
+            $row->bindParam(2, $brand, PDO::PARAM_STR);
+            $row->bindParam(3, $specification, PDO::PARAM_STR);
+            $row->bindParam(4, $description, PDO::PARAM_STR);
+            $row->bindParam(5, $price, PDO::PARAM_INT);
+            $row->bindParam(6, $quantity, PDO::PARAM_INT);
+            $row->bindParam(7, $image, PDO::PARAM_STR);
+            $row->bindParam(8, $category, PDO::PARAM_STR);
+            $row->bindParam(9, $product_id, PDO::PARAM_INT);
+            $row->execute();
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
     }
+
 
     public function GetCurrentQuantity($product_id)
     {
