@@ -32,9 +32,11 @@ if($action=='purchased') {?>
     </script> <?php
 
 }
-include_once "all_products_template.php";
-
+include_once "new_all_products.php";
 echo "</div>";
+
+//include_once "all_products_template.php";
+
 
 // footer HTML and JavaScript codes
 include 'layout_foot.php';

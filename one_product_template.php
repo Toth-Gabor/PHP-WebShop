@@ -5,7 +5,7 @@ global $home_url;
 $services = new SimpleProductServices();
 // get id from query string
 $id = htmlspecialchars($_GET["id"]);
-// TODO: az id nem lehet null!!
+
 $product = $services->ReadOne($id);
 
 // check product stock
