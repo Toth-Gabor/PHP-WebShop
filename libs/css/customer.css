@@ -11,6 +11,7 @@
 
 div#blueimp-gallery div.modal{ overflow: visible; }
 
+body {background-color: #120b2a}
 .photo-thumb{
     width:214px;
     height:214px;

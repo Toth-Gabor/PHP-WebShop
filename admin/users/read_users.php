@@ -1,8 +1,8 @@
 <?php
 // core configuration
-include_once "../config/core.php";
+include_once "../../config/core.php";
 
-include_once "../services/simpleServices/SimpleUserServices.php";
+include_once "../../services/simpleServices/SimpleUserServices.php";
 
 $user_srv = new SimpleUserServices();
 
@@ -10,7 +10,7 @@ $user_srv = new SimpleUserServices();
 $page_title = "Users";
 
 // include page header HTML
-include_once "admin_layout_head.php";
+include_once "../admin_layout_head.php";
 
 echo "<div class='col-md-12'>";
 
@@ -29,4 +29,4 @@ include_once "read_users_template.php";
 echo "</div>";
 
 // include page footer HTML
-include_once "../layout_foot.php";
+include_once "../../layout_foot.php";

@@ -21,18 +21,18 @@
                     <a href="<?php echo $home_url; ?>admin/index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/create_product.php"><span class="glyphicon glyphicon-import" aria-hidden="true"></span> Add product</a>
+                    <a href="<?php echo $home_url; ?>admin/products/create_product.php"><span class="glyphicon glyphicon-import" aria-hidden="true"></span> Add product</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/read_users.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
+                    <a href="<?php echo $home_url; ?>admin/users/read_users.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/orders.php"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Orders</a>
+                    <a href="<?php echo $home_url; ?>admin/orders/orders.php"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Orders</a>
                 </li>
             </ul>
 
             <!-- options in the upper right corner of the page -->
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right navbar-inverse">
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -41,7 +41,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <!-- log out user -->
-                        <li><a href="<?php echo $home_url; ?>logger/logout.php">Logout</a></li>
+                        <li><a href="<?php echo $home_url; ?>logger/logout.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                     </ul>
                 </li>
             </ul>
