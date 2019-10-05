@@ -55,4 +55,11 @@ class SimpleProductServices implements ProductServices {
     {
         $this->RefreshQty($new_qty,$product_id);
     }
+
+    public function ReadAllCategories()
+    {
+        return $this->productDao->GetAllCategories();
+    }
+
+
 }

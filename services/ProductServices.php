@@ -10,4 +10,5 @@ interface ProductServices{
     public function CreateProduct($name, $brand, $specification, $description,
                                   $price, $quantity, $image, $category);
     public function RemoveById($product_id);
+    public function ReadAllCategories();
 }
