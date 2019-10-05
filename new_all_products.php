@@ -15,7 +15,7 @@ foreach ($productsList as $product) {
         $hide_add_button = "disabled";
     }
     ?>
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="border: royalblue">
         <div class="thumb-wrapper">
             <div class="img-box mx-auto">
                 <img onerror="this.src='uploads/default.jpg'" src='<?= $product->getImage() ?>'

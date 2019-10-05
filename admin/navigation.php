@@ -1,5 +1,5 @@
 <!-- navbar -->
-<div class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
     <div class="container-fluid">
 
         <div class="navbar-header">
@@ -17,18 +17,17 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/index.php">Home</a>
+                    <a href="<?php echo $home_url; ?>admin/index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/create_product.php">Add product</a>
+                    <a href="<?php echo $home_url; ?>admin/create_product.php"><span class="glyphicon glyphicon-import" aria-hidden="true"></span> Add product</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/read_users.php">Users</a>
+                    <a href="<?php echo $home_url; ?>admin/read_users.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/orders.php">Orders</a>
+                    <a href="<?php echo $home_url; ?>admin/orders.php"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Orders</a>
                 </li>
             </ul>
 
