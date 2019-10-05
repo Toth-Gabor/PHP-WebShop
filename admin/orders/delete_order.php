@@ -1,6 +1,6 @@
 <?php
 
-include_once "../services/simpleServices/SimpleOrderServices.php";
+include_once "../../services/simpleServices/SimpleOrderServices.php";
 $services = new SimpleOrderServices();
 // get order id and delete order from database
 if ($_GET['id']){

@@ -1,5 +1,5 @@
 <?php
-include_once "../services/simpleServices/SimpleOrderServices.php";
+include_once "../../services/simpleServices/SimpleOrderServices.php";
 
 $services = new SimpleOrderServices();
 
@@ -36,7 +36,7 @@ foreach ($ordersList as $order){
         <td><span><?= $status ?></span></td>
         <td><span><?= $order->getCreatedAt() ?></span></td>
         <td>
-            <a href="../admin/one_order.php?id=<?= $order->getId() ?>" type="button" class="btn btn-info btn-sm m-0">Details</a>
+            <a href="one_order.php?id=<?= $order->getId() ?>" type="button" class="btn btn-info btn-sm m-0">Details</a>
         </td>
         <td>
             <a href="accept_order.php?id=<?= $order->getId() ?>&action=processed" type="button" class=" <?= $block_button ?> btn btn-success btn-sm m-0">Accept</a>

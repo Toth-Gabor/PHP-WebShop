@@ -1,9 +1,9 @@
 <?php
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 global $order_id;
-include_once "../services/simpleServices/SimpleOrderServices.php";
-include_once "../services/simpleServices/SimpleUserServices.php";
-include_once "../services/simpleServices/SimpleProductServices.php";
+include_once "../../services/simpleServices/SimpleOrderServices.php";
+include_once "../../services/simpleServices/SimpleUserServices.php";
+include_once "../../services/simpleServices/SimpleProductServices.php";
 
 
 $order_srv = new SimpleOrderServices();
@@ -106,7 +106,7 @@ $block_button = ($status == "processed") ? "disabled" : "";
                     <?php echo "<p class='col-md-8 pull-right'>&#36;" . number_format($total, 2, '.', ',') . "</p>" ?>
                 </div>
                 <div>
-                    <a href="../admin/accept_order.php?action=order_processed&id=<?= $order_id ?>" class="<?= $block_button ?> btn btn-success">Accept order</a>
+                    <a href="accept_order.php?action=order_processed&id=<?= $order_id ?>" class="<?= $block_button ?> btn btn-success">Accept order</a>
                     <a href="orders.php" class="btn btn-default">Cancel</a>
                 </div>
             </div>
