@@ -5,7 +5,6 @@ include_once "config/core.php";
 // set page title
 $page_title="Product";
 
-
 // include page header HTML
 include_once 'layout_head.php';
 

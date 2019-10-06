@@ -22,8 +22,10 @@ $product = $services->ReadOne($id);
         <li><strong>Category: </strong><?= $product->getCategory() ?></li>
     </ul>
     <div class="col-md-12">
-        <a href="edit_product.php?id=<?= $id ?>" type="button" class=" btn btn-labeled btn-success">
+        <a href="edit_product.php?id=<?= $id ?>" type="button" class=" btn btn-labeled btn-info">
             <span class="btn-label"></span>Edit properties</a>
+        <a href="../index.php?id=<?= $id ?>" type="button" class=" btn btn-labeled btn-success">
+            <span class="btn-label"></span>Back</a>
     </div>
 </div>
 

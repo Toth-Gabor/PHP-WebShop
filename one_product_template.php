@@ -1,12 +1,11 @@
 <?php
 
-include "services/simpleServices/SimpleProductServices.php";
 global $home_url;
-$services = new SimpleProductServices();
+global $product_srv;
 // get id from query string
 $id = htmlspecialchars($_GET["id"]);
 
-$product = $services->ReadOne($id);
+$product = $product_srv->ReadOne($id);
 
 // check product stock
 if ($product->getQuantity() == 0){
@@ -39,6 +38,8 @@ if ($product->getQuantity() == 0){
     <div class="col-md-12">
         <a href="cart/add_to_cart.php?id=<?= $id ?>" type="button" class="<?= $block_add_to_cart?> btn btn-labeled btn-success">
             <span class="btn-label"></span><?= $button_text?></a>
+        <a href="index.php" type="button" class="btn btn-labeled btn-info">
+            <span class="btn-label"></span>Back</a>
     </div>
 <?php
 

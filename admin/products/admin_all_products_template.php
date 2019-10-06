@@ -4,16 +4,6 @@ include __DIR__ . "/../../services/simpleServices/SimpleProductServices.php";
 
 $services = new SimpleProductServices();
 
-$hide_delete_button = "";
-$hide_add_button = "";
-
-// show/hide buttons depend on access level
-if(!isset($_SESSION['access_level']) || $_SESSION['access_level']!="Admin"){
-    $hide_delete_button = "hidden";
-}
-if (isset($_SESSION['access_level']) && $_SESSION['access_level']=="Admin"){
-    $hide_add_button = "hidden";
-}
 // get all products
 $productsList = $services->ReadAll();
 ?>
@@ -57,7 +47,7 @@ $productsList = $services->ReadAll();
                 <td><?= $product->getCategory() ?></td>
                 <td>
                     <?= "<a href='products/admin_product.php?id={$product->getId()}' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>"?>
-                         <a href=products/delete_product.php?id=<?= $product->getId() ?>" type="button" class="<?= $hide_delete_button?> btn btn-labeled btn-danger btn-sm m-0">
+                         <a href="products/delete_product.php?id=<?= $product->getId() ?>" type="button" class="btn btn-labeled btn-danger btn-sm m-0">
                             <span class="btn-label"></span>Delete</a>
                 </td>
             </tr>
