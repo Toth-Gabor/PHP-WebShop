@@ -6,7 +6,8 @@ include_once "config/core.php";
 // set page title
 $page_title="Index";
 // include page header HTML
-include_once 'layout_head.php';
+
+include_once "layout_head.php";
 
 $category = isset($_GET['category']) ? ($_GET['category']) : "";
 

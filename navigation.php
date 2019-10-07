@@ -8,7 +8,7 @@ $categories = $product_srv->ReadAllCategories();
 
 <!-- navbar -->
 <div class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation"
-     style="background-color: -moz-mac-accentdarkshadow">
+     style="background-color: -moz-mac-accentdarkshadow; margin-bottom: 0">
     <div class="container-fluid">
 
         <div class="navbar-header">
