@@ -7,7 +7,9 @@ include_once "../admin_layout_head.php";
 // get current product details
 include "../../services/simpleServices/SimpleProductServices.php";
 $product_srv = new SimpleProductServices();
+
 $id = htmlspecialchars($_GET["id"]);
+
 $product = $product_srv->ReadOne($id);
 
 $action = isset($_GET['action']) ? $_GET['action'] : "";
@@ -86,7 +88,7 @@ if ($action == "wrong_input"){?>
 
                         <div class="form-group row">
                             <label for="image" class="col-lg-3 col-form-label text-md-right">
-                                New Image Url</label>
+                                New Image</label>
                             <div class="col-md-6">
                                 <input type="file" name="image">
                             </div>

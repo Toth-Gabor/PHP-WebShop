@@ -10,8 +10,5 @@
 
 
 <!-- end HTML page -->
-<br>
-<br>
-<br>
 </body>
 </html>

@@ -3,7 +3,8 @@
 include_once __DIR__ . "/../../Database/Dao/DatabaseProductDao.php";
 include_once __DIR__ . "/../../services/ProductServices.php";
 
-class SimpleProductServices implements ProductServices {
+class SimpleProductServices implements ProductServices
+{
 
     private $productDao;
 
@@ -17,7 +18,7 @@ class SimpleProductServices implements ProductServices {
         $isValid = true;
 
         // check price and quantity inputs
-        if ($price > 0 && $quantity >= 0){
+        if ($price > 0 && $quantity >= 0) {
             $this->productDao->Create($name, $brand, $specification, $description, $price, $quantity, $image, $category);
         } else {
             $isValid = false;
@@ -53,12 +54,12 @@ class SimpleProductServices implements ProductServices {
 
     public function ReadCurrentQty($product_id)
     {
-         return $this->productDao->GetCurrentQuantity($product_id);
+        return $this->productDao->GetCurrentQuantity($product_id);
     }
 
     public function RefreshQty($new_qty, $product_id)
     {
-        $this->RefreshQty($new_qty,$product_id);
+        $this->RefreshQty($new_qty, $product_id);
     }
 
     public function ReadAllCategories()
@@ -70,13 +71,11 @@ class SimpleProductServices implements ProductServices {
     {
         $isValid = true;
         // check price and quantity inputs
-        if ($price > 0 && $quantity >= 0){
+        if ($price > 0 && $quantity >= 0) {
             $this->productDao->UpdateProduct($product_id, $name, $brand, $specification, $description, $price, $quantity, $image, $category);
         } else {
             $isValid = false;
         }
         return $isValid;
     }
-
-
 }

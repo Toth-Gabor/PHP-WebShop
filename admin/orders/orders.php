@@ -31,9 +31,6 @@ if($action=='processed') {?>
     </script> <?php
 }
 
-
-
-
 echo "<div class='container'>";
 
 include_once "all_orders_template.php";
