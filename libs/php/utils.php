@@ -2,12 +2,15 @@
 class Utils{
 
     // will upload image file to server
-    function uploadPhoto($image){
+    function uploadPhoto($image, $oldPath){
 
         $result_message="";
 
         if (isset($_SESSION['filepath'])){
             unset($_SESSION['filepath']);
+        }
+        if ($image == "") {
+            $_SESSION['filepath'] = $oldPath;
         }
         // now, if image is not empty, try to upload the image
         if($image){
@@ -40,7 +43,7 @@ class Utils{
             }
 
             // make sure submitted file is not too large, can't be larger than 1 MB
-            if($_FILES['image']['size'] > (1024000)){
+            if($_FILES['image']['size'] > (2097152)){
                 $file_upload_error_messages.="<div>Image must be less than 1 MB in size.</div>";
             }
 
@@ -57,7 +60,6 @@ class Utils{
                     // it means photo was uploaded
                     // add filePath to session
                     $_SESSION['filepath'] = "uploads/" . $image;
-                    
                 }else{
                     $result_message.="<div class='alert alert-danger'>";
                     $result_message.="<div>Unable to upload photo.</div>";
