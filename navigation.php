@@ -25,11 +25,11 @@ $categories = $product_srv->ReadAllCategories();
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="<?php echo $home_url; ?>" role="button"><span class="glyphicon glyphicon-home"></span> Home</a>
+                    <a href="<?php echo $home_url; ?>" role="button"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="glyphicon glyphicon-list"></span> Categories <span class="caret"></span></a>
+                        <i class="fa fa-list"></i> Categories <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <!-- create categories drop down menu-->
                         <?php foreach ($categories as $category){?>
@@ -49,18 +49,18 @@ $categories = $product_srv->ReadAllCategories();
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="<?php echo $home_url; ?>cart/cart.php">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+                            <i class="fa fa-shopping-cart"></i> Cart
                         </a>
                     </li>
 
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <i class="fa fa-user"></i>
                             &nbsp;&nbsp;<?php echo $_SESSION['firstname']; ?>
                             &nbsp;&nbsp;<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="<?php echo $home_url; ?>logger/logout.php">Logout</a></li>
+                            <li><a href="<?php echo $home_url; ?>logger/logout.php"><i class="fa fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -73,18 +73,18 @@ $categories = $product_srv->ReadAllCategories();
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="<?php echo $home_url; ?>cart/cart.php">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+                            <i class="fa fa-shopping-cart"></i> Cart
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $home_url; ?>logger/login.php">
-                            <span class="glyphicon glyphicon-log-in"></span> Log In
+                            <i class="fa fa-sign-in"></i> Login
                         </a>
                     </li>
 
                     <li>
                         <a href="<?php echo $home_url; ?>logger/register.php">
-                            <span class="glyphicon glyphicon-check"></span> Register
+                            <i class="fa fa-user-plus"></i> Register
                         </a>
                     </li>
                 </ul>

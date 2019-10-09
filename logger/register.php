@@ -18,11 +18,11 @@ include_once "../libs/php/utils.php";
 // include page header HTML
 include_once "../layout_head.php";
 
-echo "<div class='col-md-12'>";
 
 // registration form HTML will be here
 // code when form was submitted will be here
 ?>
+<div class="account-wall">
     <form action='register.php' method='post' id='register'>
 
         <table class='table table-responsive'>
@@ -68,6 +68,8 @@ echo "<div class='col-md-12'>";
 
         </table>
     </form>
+
+</div>
 <?php
 
 // if form was posted
@@ -114,7 +116,6 @@ if($_POST){
     }
 }
 
-echo "</div>";
 
 // include page footer HTML
 include_once "../layout_foot.php";
