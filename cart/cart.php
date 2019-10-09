@@ -3,7 +3,7 @@ include_once "../config/core.php";
 
 $page_title = "Cart";
 
-include_once __DIR__ . "/../cart/layout_head.php";
+include_once __DIR__ . "/../layout_head.php";
 
 include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
 

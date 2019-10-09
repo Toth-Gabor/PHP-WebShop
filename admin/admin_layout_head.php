@@ -12,10 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="<?php echo $home_url . 'libs/css/bootstrap.css'?>" rel="stylesheet" />
 
     <!-- admin custom CSS -->
     <link href="<?php echo $home_url . "libs/css/admin.css" ?>" rel="stylesheet" />
+    <link href="<?php echo $home_url . "libs/css/customer.css" ?>" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 </head>
 <body>

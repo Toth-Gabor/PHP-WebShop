@@ -12,22 +12,22 @@
             </button>
 
             <!-- Change "Site Admin" to your site name -->
-            <a class="navbar-brand" href="<?php echo $home_url; ?>admin/index.php">Admin</a>
+            <a class="navbar-brand" href="<?php echo $home_url; ?>admin/index.php"><i class="fa fa-cog"></i> Admin</a>
         </div>
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
+                    <a href="<?php echo $home_url; ?>admin/index.php"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/products/create_product.php"><span class="glyphicon glyphicon-import" aria-hidden="true"></span> Add product</a>
+                    <a href="<?php echo $home_url; ?>admin/products/create_product.php"><i class="fa fa-plus-square"></i> Add product</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/users/read_users.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
+                    <a href="<?php echo $home_url; ?>admin/users/read_users.php"><i class="fa fa-users"></i> Users</a>
                 </li>
                 <li>
-                    <a href="<?php echo $home_url; ?>admin/orders/orders.php"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Orders</a>
+                    <a href="<?php echo $home_url; ?>admin/orders/orders.php"><i class="fa fa-paste"></i> Orders</a>
                 </li>
             </ul>
 
@@ -35,13 +35,13 @@
             <ul class="nav navbar-nav navbar-right navbar-inverse">
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        <i class="fa fa-user"></i>
                         &nbsp;&nbsp;<?php echo $_SESSION['firstname']; ?>
                         &nbsp;&nbsp;<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <!-- log out user -->
-                        <li><a href="<?php echo $home_url; ?>logger/logout.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+                        <li><a href="<?php echo $home_url; ?>logger/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                     </ul>
                 </li>
             </ul>
