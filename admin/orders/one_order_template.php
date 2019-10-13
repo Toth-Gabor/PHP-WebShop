@@ -22,7 +22,7 @@ $block_button = ($status == "processed") ? "disabled" : "";
 
 ?>
 <!--user details-->
-<div class="container padding-bottom">
+<div class="container padding-bottom list-border-background">
     <div class="row">
         <div class="col-md-9 personal-info">
             <div class="form-horizontal" role="form">

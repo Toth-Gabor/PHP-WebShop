@@ -9,20 +9,15 @@ $productsList = $services->ReadAll();
 ?>
 
 <div"> <!-- col-md-4 m-b-20px -->
-    <table class='table table-hover table-responsive '>
+    <table class='table table-hover table-responsive pc-card list-border-background'>
         <thead>
             <tr>
                 <th><strong>#</strong></th>
                 <th><strong>Name</strong></th>
-                <!--<th><strong>Brand</strong></th>-->
-                <!--<th><strong>Specification</strong></th>-->
-                <!--<th><strong>Description</strong></th>-->
                 <th><strong><span class="pull-right">Price</span></strong></th>
                 <th><strong><span class="pull-right">Stock</span></strong></th>
-                <!--<th><strong>Image Url</strong></th>-->
                 <th><strong>Category</strong></th>
                 <th><strong>Actions</strong></th>
-                <!--<th><strong>Add to Cart</strong></th>-->
             </tr>
         </thead>
         <?php foreach ($productsList as $product){
@@ -38,12 +33,8 @@ $productsList = $services->ReadAll();
             <tr>
                 <td><span class="margin-1em-zero"><?= $product->getId() ?></span></td>
                 <td><span class="margin-1em-zero"><?= $product->getName() ?></span></td>
-                <!--<td><?= $product->getBrand() ?></td>-->
-                <!--<td><?= $product->getSpecification() ?></td>-->
-                <!--<td><?= $product->getDescription() ?></td>-->
                 <td><span class="pull-right">$<?= $product->getPrice() ?></span></td>
                 <td><span class="pull-right"><?= $product->getQuantity() ?></span></td>
-                <!--<td><?= $product->getImage() ?></td>-->
                 <td><?= $product->getCategory() ?></td>
                 <td>
                     <?= "<a href='products/admin_product.php?id={$product->getId()}' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>"?>

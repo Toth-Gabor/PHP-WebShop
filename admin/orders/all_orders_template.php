@@ -5,7 +5,7 @@ $services = new SimpleOrderServices();
 
 $ordersList = $services->ReadAllOrders();
 ?>
-<div class="account-wall">
+<div class="list-border-background">
     <table class="table table-striped table-responsive-md btn-table">
         <thead>
         <tr>

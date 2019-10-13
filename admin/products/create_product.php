@@ -20,7 +20,7 @@ if ($action == "wrong_input"){?>
     <main class="my-form">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-8 list-border-background">
                     <form action="add_product_to_db.php" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="name" class="col-lg-3 col-form-label text-md-right">

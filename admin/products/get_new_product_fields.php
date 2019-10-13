@@ -12,8 +12,9 @@ $description = $_POST['description'];
 $price = $_POST['price'];
 $quantity = $_POST['stock'];
 $oldImage = isset($_POST['old_image']) ? $_POST['old_image'] : "";
-var_dump($oldImage);
+
 $uniqueSaveName = time().uniqid(rand());
+
 $image = !empty($_FILES["image"]["name"])
 ? $uniqueSaveName . "-" . basename($_FILES["image"]["name"]) : "";
 

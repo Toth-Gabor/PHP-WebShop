@@ -3,7 +3,7 @@ global $user_srv;
 // display the table if the number of users retrieved was greater than zero
 if($num>0){
 
-    echo "<table class='table table-hover table-responsive table-bordered'>";
+    echo "<table class='table table-hover table-responsive table-bordered list-border-background'>";
 
         // table headers
         echo "<tr>";
