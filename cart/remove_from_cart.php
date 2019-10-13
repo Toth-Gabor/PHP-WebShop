@@ -9,7 +9,6 @@ $name = isset($_GET['name']) ? $_GET['name'] : "";
 
 // remove the item from the array
 unset($_SESSION['cart'][$id]);
-var_dump($_SESSION['cart']);
 if (count($_SESSION['cart']) == 0){
     unset($_SESSION['cart']);
     header('Location: index.php?action=removed&id=' . $id);

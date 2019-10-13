@@ -123,20 +123,6 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         return null;
     }
 
-    /*public function UpdateQty($new_qty, $product_id)
-    {
-        try {
-            $sql = "UPDATE products SET quantity = ?  WHERE product_id = ?";
-            $row = $this->conn->prepare($sql);
-            $row->bindParam(1, $new_qty, PDO::PARAM_INT);
-            $row->bindParam(2, $product_id, PDO::PARAM_INT);
-            $row->execute();
-
-        } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
-        }
-    }*/
-
     public function UpdateProduct($product_id, $name, $brand, $specification, $description, $price, $quantity, $image, $category)
     {
         try {

@@ -12,7 +12,8 @@
 div#blueimp-gallery div.modal{ overflow: visible; }
 
 html {
-    background-color: #fefefe;
+    background-color: rgba(207, 208, 212, 0.93);
+
 }
 
 .card-product:hover{ border-color: rgba(82, 168, 236, 0.8);
@@ -180,3 +181,42 @@ html {
     margin-top: 60px;
 }
 
+.one-product-container {
+    padding: 20px;
+    margin: 20px auto;
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 1);
+    background-color: #FFFFFF;
+}
+.list-border-background {
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 1);
+    background-color: #FFFFFF;
+}
+
+.op-img {
+    width: 400px;
+    padding: 20px;
+}
+
+.op-desc {
+    width: 400px;
+}
+
+.op-specs {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 700px;
+}
+.op-main {
+
+    width: 700px;
+    display: flex;
+}
+
+.pc-card {
+    background-color: #FFFFFF;
+}

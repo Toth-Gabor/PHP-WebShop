@@ -5,7 +5,7 @@ include_once "../services/simpleServices/SimpleOrderServices.php";
 
 $orderServices = new SimpleOrderServices();
 
-$user_id = $_SESSION['user_id'];
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : $_SESSION['guest_id'];
 $order = json_encode($_SESSION['cart']);
 // add oder to database
 $orderServices->AddOrder($user_id, $order);
