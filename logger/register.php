@@ -18,11 +18,9 @@ include_once "../libs/php/utils.php";
 // include page header HTML
 include_once "../layout_head.php";
 
-
-// registration form HTML will be here
 // code when form was submitted will be here
 ?>
-<div class="account-wall">
+<div class="list-border-background">
     <form action='register.php' method='post' id='register'>
 
         <table class='table table-responsive'>
@@ -115,8 +113,6 @@ if($_POST){
         }
     }
 }
-
-
 // include page footer HTML
 include_once "../layout_foot.php";
 ?>

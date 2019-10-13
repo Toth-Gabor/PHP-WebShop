@@ -1,7 +1,6 @@
 <?php
 // core configuration
 include_once "config/core.php";
-// TODO: add category filter
 
 // set page title
 $page_title="Index";
@@ -37,9 +36,6 @@ if($action=='purchased') {?>
 }
 include_once "new_all_products.php";
 echo "</div>";
-
-//include_once "all_products_template.php";
-
 
 // footer HTML and JavaScript codes
 include 'layout_foot.php';

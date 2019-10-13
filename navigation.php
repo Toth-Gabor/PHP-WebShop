@@ -19,7 +19,7 @@ $categories = $product_srv->ReadAllCategories();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo $home_url; ?>">DSLR Shop</a>
+            <a class="navbar-brand" href="<?php echo $home_url; ?>"><i class="fa fa-camera"></i> DSLR Shop</a>
         </div>
 
         <div class="navbar-collapse collapse">
@@ -33,9 +33,9 @@ $categories = $product_srv->ReadAllCategories();
                     <ul class="dropdown-menu" role="menu">
                         <!-- create categories drop down menu-->
                         <?php foreach ($categories as $category){?>
-                          <li><a href='index.php?category=<?= $category['category']?>'><?= $category['category']?></a></li>
+                          <li><a href='<?php echo $home_url; ?>index.php?category=<?= $category['category']?>'><?= $category['category']?></a></li>
                         <?php }?>
-                        <li><a href='index.php?category='>All</a></li>
+                        <li><a href='<?php echo $home_url; ?>index.php?category='>All</a></li>
                     </ul>
                 </li>
             </ul>
@@ -43,7 +43,6 @@ $categories = $product_srv->ReadAllCategories();
             <?php
 
             // check if users / customer was logged in
-            // if user was logged in, show "Edit Profile", "Orders" and "Logout" options
             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true && $_SESSION['access_level'] == 'Customer') {
                 ?>
                 <ul class="nav navbar-nav navbar-right">
