@@ -15,5 +15,5 @@ $_SESSION['cart'][$id]=array(
     'quantity'=>$quantity
 );
 
-// redirect to product list and tell the user it was added to cart
+// tell the user the quantity was updated in cart
 header('Location: ../cart/cart.php?action=quantity_updated&id=' . $id);

@@ -12,20 +12,10 @@ $service = new SimpleProductServices();
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 
 
-
-
 // alert if item was removed
-if ($action == 'removed') {
-    ?>
+if ($action == 'removed') {?>
     <script type="text/javascript">
         swal({title: 'Info', text: 'The selected item has been removed from your Cart!', type: 'info', timer: 1800});
-    </script> <?php
-
-
-// alert if quantity updated
-} else if ($action == 'quantity_updated') { ?>
-    <script type="text/javascript">
-        swal({title: 'Info', text: 'The quantity of selected item has been Updated!', type: 'info', timer: 1800});
     </script> <?php
 
 // alert if cart is empty
@@ -38,13 +28,20 @@ if ($action == 'removed') {
     $total = 0;
     $item_count = 0;
     $row_count = 0;
+
+    // alert if quantity updated
+    if ($action == 'quantity_updated') { ?>
+        <script type="text/javascript">
+            swal({title: 'Info', text: 'The quantity of selected item has been Updated!', type: 'info', timer: 1800});
+        </script> <?php
+    }
     // alert if user not logged in
-    if($action == 'not_logged_in') {
-        ?>
+    if($action == 'not_logged_in') {?>
         <script type="text/javascript">
             swal({title: 'Warning', text: 'Please login first!', type: 'warning', timer: 1800});
         </script> <?php
     }
+
     if (isset($_SESSION['access_level']) && $_SESSION['access_level'] == "Customer") {
         $redirectPage = "check_out.php";
     } else {
@@ -94,7 +91,7 @@ if ($action == 'removed') {
                 <td></td><td></td><td></td><td></td>
                 <td align="right">
                     <a href='<?= $redirectPage ?>?action=<?= $action ?>' class='btn btn-success m-b-10px'>
-                        <span class='glyphicon glyphicon-shopping-cart'></span> Proceed to checkout
+                        <i class="fa fa-cart-plus"></i> Proceed to checkout
                     </a>
                 </td>
             </tr>
