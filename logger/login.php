@@ -5,7 +5,6 @@ $page_title = "Login";
 
 $require_login=false;
 
-$access_denied=false;
 
 include_once "../logger/login_checker.php";
 
@@ -47,9 +46,9 @@ if($_POST){
         }
     }
 
-// if username does not exist or password is wrong
+    // if username does not exist or password is wrong
     else{
-        $access_denied=true;
+        header("Location: {$home_url}logger/login.php?action=incorrect");
     }
 }
 
@@ -66,25 +65,26 @@ if($action =='not_yet_logged_in'){
 }
 
 // tell the user to login
-else if($action=='please_login'){
-    echo "<div class='alert alert-info'>
-        <strong>Please login to access that page.</strong>
-    </div>";
+else if($action=='please_login'){?>
+    <script type="text/javascript">
+        swal({title:'Access Denied', text:'Please login to access that page!', type:'warning'});
+    </script> <?php
+
 }
 
 // tell the user email is verified
-else if($action=='email_verified'){
+else if($action == 'email_verified'){
     echo "<div class='alert alert-success'>
         <strong>Your email address have been validated.</strong>
     </div>";
 }
 
 // tell the user if access denied
-if($access_denied){
-    echo "<div class='alert alert-danger margin-top-40' role='alert'>
-        Access Denied.<br /><br />
-        Your username or password maybe incorrect
-    </div>";
+if($action == 'incorrect'){?>
+    <script type="text/javascript">
+        swal({title:'Access Denied', text:'Your username or password maybe incorrect!', type:'warning'});
+    </script> <?php
+
 }
 
     // actual HTML login form
