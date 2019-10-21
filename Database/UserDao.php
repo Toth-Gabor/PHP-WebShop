@@ -3,8 +3,9 @@
 
 interface UserDao
 {
-    public function CreateUser($firstname, $lastname, $email, $contact_number, $address, $password,
+    public function CreateUser($firstName, $lastName, $email, $contact_number, $address, $password,
                                $access_level, $access_code, $status, $created);
+    public function UpdateUserDetails($user_id, $firstName, $lastName, $email, $contact_number, $address);
     public function GetUserById($user_id);
     public function GetAllUser();
     public function EmailExists($email);

@@ -40,6 +40,26 @@ class DatabaseUserDao extends AbstractDao implements UserDao
         }
     }
 
+    public function UpdateUserDetails($user_id, $firstName, $lastName, $email, $contact_number, $address)
+    {
+        try {
+            $sql = "UPDATE users SET firstname = ?, lastname = ?, email = ?, 
+                    contact_number = ?, address = ? WHERE id = ?";
+
+            $row = $this->conn->prepare($sql);
+            $row->bindParam(1, $firstName, PDO::PARAM_STR);
+            $row->bindParam(2, $lastName, PDO::PARAM_STR);
+            $row->bindParam(3, $email, PDO::PARAM_STR);
+            $row->bindParam(4, $contact_number, PDO::PARAM_INT);
+            $row->bindParam(5, $address, PDO::PARAM_STR);
+            $row->bindParam(6, $user_id, PDO::PARAM_INT);
+            $row->execute();
+
+        } catch (PDOException $pe) {
+            die("Could not connect to the database! " . $pe->getMessage());
+        }
+    }
+
     public function GetUserById($user_id)
     {
         try {
