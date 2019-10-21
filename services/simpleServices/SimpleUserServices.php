@@ -11,11 +11,16 @@ class SimpleUserServices implements UserServices
         $this->userdao = new DatabaseUserDao();
     }
 
-    public function AddUser($firstname, $lastname, $email, $contact_number, $address,
+    public function AddUser($firstName, $lastName, $email, $contact_number, $address,
                             $password, $access_level, $access_code, $status, $created)
     {
-        $this->userdao->CreateUser($firstname, $lastname, $email, $contact_number, $address,
+        $this->userdao->CreateUser($firstName, $lastName, $email, $contact_number, $address,
                                    $password, $access_level, $access_code, $status, $created);
+    }
+
+    public function UpdateUserDetails($user_id, $firstName, $lastName, $email, $contact_number, $address)
+    {
+        $this->UpdateUserDetails($user_id, $firstName, $lastName, $email, $contact_number, $address);
     }
 
     public function ReadUserById($user_id)
