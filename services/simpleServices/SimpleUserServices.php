@@ -20,7 +20,7 @@ class SimpleUserServices implements UserServices
 
     public function UpdateUserDetails($user_id, $firstName, $lastName, $email, $contact_number, $address)
     {
-        $this->UpdateUserDetails($user_id, $firstName, $lastName, $email, $contact_number, $address);
+        $this->userdao->UpdateUserDetails($user_id, $firstName, $lastName, $email, $contact_number, $address);
     }
 
     public function ReadUserById($user_id)
