@@ -6,7 +6,7 @@ $page_title = "Edit product";
 // must be logged in as admin!
 $require_login = true;
 
-include "../../logger/login_checker.php";
+//include "../../logger/login_checker.php";
 
 include_once "../admin_layout_head.php";
 // get current product details
@@ -30,7 +30,7 @@ if ($action == "wrong_input"){?>
 }
 
 ?>
-    <main class="my-form">
+    <main class="my-form list-border-background width-70-percent">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -52,18 +52,18 @@ if ($action == "wrong_input"){?>
                         </div>
 
                         <div class="form-group row">
-                            <label for="specification" class="col-lg-3 col-form-label text-md-right">
-                                Specification</label>
-                            <div class="col-md-6">
-                                <input type="text" name="specification" class="form-control" value="<?= $product->getSpecification() ?>" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="description" class="col-lg-3 col-form-label text-md-right">
                                 Description</label>
                             <div class="col-md-6">
                                 <input type="text" name="description" class="form-control" value="<?= $product->getDescription() ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="specification" class="col-lg-3 col-form-label text-md-right">
+                                Specification</label>
+                            <div class="col-md-6">
+                                <input type="text" name="specification" class="form-control" value="<?= $product->getSpecification() ?>" required>
                             </div>
                         </div>
 

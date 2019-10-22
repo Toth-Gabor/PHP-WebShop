@@ -8,7 +8,7 @@ $page_title="Product";
 // must be logged in as admin!
 $require_login = true;
 
-include "../../logger/login_checker.php";
+//include "../../logger/login_checker.php";
 
 include_once "../admin_layout_head.php";
 

@@ -29,13 +29,13 @@ $block_button = ($status == "processed") ? "disabled" : "";
                 <div class="form-group">
                     <label class="col-lg-3 control-label">First name:</label>
                     <div class="col-lg-8">
-                        <p class="form-control"><?= $user->getFirstname() ?></p>
+                        <p class="form-control"><?= $user->getFirstName() ?></p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Last name:</label>
                     <div class="col-lg-8">
-                        <p class="form-control"><?= $user->getLastname() ?></p>
+                        <p class="form-control"><?= $user->getLastName() ?></p>
                     </div>
                 </div>
                 <div class="form-group">

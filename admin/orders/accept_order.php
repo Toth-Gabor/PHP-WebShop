@@ -16,12 +16,20 @@ $user = $user_srv->ReadUserById($user_id);
 // send email to customer
 $to      = $user->getEmail();
 $subject = 'Your order has shipped!';
-$message = 'Hi ' . $user->getFirstname() . "\r\n" . 'Your order has shipped!' . "\r\n" .
-            'The ordered items should arrive to your shipping address within 3 business days.' . "\r\n" .
-            'Thanks for shopping on DSLR Shop!\r\n' . 'XOXO\n' . 'DSLR Shop Team';
-$headers = 'From: DSLR Shop';
 
-mail($to, $subject, $message, $headers);
+$message = '<html><body>';
+$message .= '<h2 style="color:#f40;">Hi '. $user->getFirstName() . '!</h2>';
+$message .= '<p style="font-size:18px;">Your order has been shipped!</p>';
+$message .= '<p style="font-size:18px;">The ordered items should arrive to your shipping address within 3 business days.</p><br>';
+$message .= '<p style="font-size:18px;">King regards!</p><br>';
+$message .= '<p style="font-size:18px;">DSLR Shop Team</p>';
+$message .= '</body></html>';
+
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+$sent = mail($to, $subject, $message, $headers);
+var_dump($sent);
 
 // update order status
 $order_srv->UpdateOrderStatus($order_id, "processed");
