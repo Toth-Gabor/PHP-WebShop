@@ -22,17 +22,18 @@ if($_POST){
 
     $user = $sevices->ReadUserByEmail($email);
 
-    $user->setStatus(1);
+    //$user->setStatus(1);
+    //if ($email_exists && password_verify($_POST['password'], $user->getPassword()) && $user->getStatus()){
 
     // validate login
-    if ($email_exists && password_verify($_POST['password'], $user->getPassword()) && $user->getStatus()){
+    if ($email_exists && password_verify($_POST['password'], $user->getPassword()) && $user->getStatus() && $user != null) {
 
         // if it is, set the session value to true
         $_SESSION['logged_in'] = true;
         $_SESSION['user_id'] = $user->getId();
         $_SESSION['access_level'] = $user->getAccessLevel();
-        $_SESSION['firstname'] = htmlspecialchars($user->getFirstname(), ENT_QUOTES, 'UTF-8') ;
-        $_SESSION['lastname'] = $user->getLastname();
+        $_SESSION['firstname'] = htmlspecialchars($user->getFirstName(), ENT_QUOTES, 'UTF-8') ;
+        $_SESSION['lastname'] = $user->getLastName();
 
         // if access level is 'Admin', redirect to admin section
         if($user->getAccessLevel()=='Admin'){
@@ -40,7 +41,7 @@ if($_POST){
         }
 
         // else, redirect only to 'Customer' section
-        elseif($user->getAccessLevel()=='Customer')
+        elseif($user->getAccessLevel() == 'Customer')
         {
             header("Location: {$home_url}index.php?action=login_success");
         }
@@ -62,6 +63,12 @@ $action=isset($_GET['action']) ? $_GET['action'] : "";
 // tell the user he is not yet logged in
 if($action =='not_yet_logged_in'){
     echo "<div class='alert alert-danger margin-top-40' role='alert'>Please login.</div>";
+}
+// user details updated
+if ($action == 'updated') {?>
+    <script type="text/javascript">
+        swal({title: 'Updated', text: 'Your details updated! Please login!', type: 'success', timer: 2200});
+    </script> <?php
 }
 
 // tell the user to login

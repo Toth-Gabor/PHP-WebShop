@@ -37,12 +37,12 @@ class User{
         return $this->id;
     }
 
-    public function getFirstname()
+    public function getFirstName()
     {
         return $this->firstname;
     }
 
-    public function getLastname()
+    public function getLastName()
     {
         return $this->lastname;
     }

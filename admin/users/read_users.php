@@ -12,7 +12,7 @@ $page_title = "Users";
 // must be logged in as admin!
 $require_login = true;
 
-include "../../logger/login_checker.php";
+//include "../../logger/login_checker.php";
 
 // include page header HTML
 include_once "../admin_layout_head.php";

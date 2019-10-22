@@ -19,8 +19,8 @@ if($num>0){
 
             // display user details
             echo "<tr>";
-                echo "<td>{$user->getFirstname()}</td>";
-                echo "<td>{$user->getLastname()}</td>";
+                echo "<td>{$user->getFirstName()}</td>";
+                echo "<td>{$user->getLastName()}</td>";
                 echo "<td>{$user->getEmail()}</td>";
                 echo "<td>{$user->getContactNumber()}</td>";
                 echo "<td>{$user->getAccessLevel()}</td>";
