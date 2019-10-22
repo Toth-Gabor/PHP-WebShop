@@ -19,6 +19,18 @@ if($action=='added'){?>
     </script> <?php
 }
 
+if($action=='cart_empty'){?>
+    <script type="text/javascript">
+        swal({title: 'Info', text: 'Your cart is Empty!', type: 'info', timer: 1500});
+    </script><?php
+}
+
+if ($action == 'removed') { ?>
+    <script type="text/javascript">
+        swal({title: 'Info', text: 'The selected item has been removed from your Cart!', type: 'info', timer: 1800});
+    </script> <?php
+}
+
 // alert if item already added to cart
 if($action=='exists'){?>
     <script type="text/javascript">

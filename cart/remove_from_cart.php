@@ -11,7 +11,9 @@ $name = isset($_GET['name']) ? $_GET['name'] : "";
 unset($_SESSION['cart'][$id]);
 if (count($_SESSION['cart']) == 0){
     unset($_SESSION['cart']);
-    header('Location: index.php?action=removed&id=' . $id);
+    header('Location: ../index.php?action=removed&id=' . $id);
+} else {
+    // redirect to product list and tell the user it was added to cart
+    header('Location: cart.php?action=removed&id=' . $id);
 }
-// redirect to product list and tell the user it was added to cart
-header('Location: cart.php?action=removed&id=' . $id);
+

@@ -15,7 +15,7 @@ $user = $user_srv->ReadUserById($user_id);
 
 // send email to customer
 $to      = $user->getEmail();
-$subject = 'Your order has shipped!';
+$subject = 'Your order has been shipped!';
 
 $message = '<html><body>';
 $message .= '<h2 style="color:#f40;">Hi '. $user->getFirstName() . '!</h2>';

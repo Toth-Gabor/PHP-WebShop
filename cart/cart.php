@@ -3,40 +3,39 @@ include_once "../config/core.php";
 
 $page_title = "Cart";
 
-include_once __DIR__ . "/../layout_head.php";
+// alert and redirect if cart empty
+if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)) {
+    header("Location: ../index.php?action=cart_empty");
+} else {
 
-include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
+    include_once __DIR__ . "/../layout_head.php";
 
-$service = new SimpleProductServices();
+    include_once __DIR__ . "/../services/simpleServices/SimpleProductServices.php";
 
-$action = isset($_GET['action']) ? $_GET['action'] : "";
+    $service = new SimpleProductServices();
+
+    $action = isset($_GET['action']) ? $_GET['action'] : "";
 
 
 // alert if item was removed
-if ($action == 'removed') {?>
-    <script type="text/javascript">
-        swal({title: 'Info', text: 'The selected item has been removed from your Cart!', type: 'info', timer: 1800});
-    </script> <?php
+    if ($action == 'removed') { ?>
+        <script type="text/javascript">
+            swal({title: 'Info', text: 'The selected item has been removed from your Cart!', type: 'info', timer: 1800});
+        </script> <?php
+    }
 
-// alert if cart is empty
-} elseif (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)) { ?>
-    <script type="text/javascript">
-        swal({title: 'Info', text: 'Your cart is Empty!', type: 'info', timer: 1800});
-    </script><?php
-
-} else {
     $total = 0;
     $item_count = 0;
     $row_count = 0;
 
-    // alert if quantity updated
+// alert if quantity updated
     if ($action == 'quantity_updated') { ?>
         <script type="text/javascript">
             swal({title: 'Info', text: 'The quantity of selected item has been Updated!', type: 'info', timer: 1800});
         </script> <?php
     }
-    // alert if user not logged in
-    if($action == 'not_logged_in') {?>
+// alert if user not logged in
+    if ($action == 'not_logged_in') { ?>
         <script type="text/javascript">
             swal({title: 'Warning', text: 'Please login first!', type: 'warning', timer: 1800});
         </script> <?php
@@ -77,18 +76,27 @@ if ($action == 'removed') {?>
                 $total += $sub_total;
             } ?>
             <tr>
-                <td></td><td></td><td></td><td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td align="right">
                     <h4 class='m-b-10px'>Total (<?= $item_count ?> items)</h4>
                 </td>
             <tr>
-                <td></td><td></td><td></td><td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td align="right">
                     <?php echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>" ?>
                 </td>
             </tr>
             <tr>
-                <td></td><td></td><td></td><td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td align="right">
                     <a href='<?= $redirectPage ?>?action=<?= $action ?>' class='btn btn-success m-b-10px'>
                         <i class="fa fa-cart-plus"></i> Proceed to checkout
@@ -99,5 +107,6 @@ if ($action == 'removed') {?>
     </table>
 
     <?php
+
+    include '../layout_foot.php';
 }
-include '../layout_foot.php';
