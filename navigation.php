@@ -59,7 +59,8 @@ $categories = $product_srv->ReadAllCategories();
                             &nbsp;&nbsp;<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="<?php echo $home_url; ?>logger/logout.php"><i class="fa fa-sign-out"></i>Logout</a></li>
+                            <li><a href="<?php echo $home_url; ?>profile.php"><i class="fa fa-cog"></i> Profile</a></li>
+                            <li><a href="<?php echo $home_url; ?>logger/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                         </ul>
                     </li>
                 </ul>
