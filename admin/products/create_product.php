@@ -3,11 +3,6 @@ include_once "../../config/core.php";
 
 $page_title = "Create product";
 
-// must be logged in as admin!
-$require_login = true;
-
-//include "../../logger/login_checker.php";
-
 include_once "../admin_layout_head.php";
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 

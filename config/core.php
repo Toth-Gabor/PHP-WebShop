@@ -5,11 +5,13 @@ error_reporting(E_ALL);
 // start php session
 session_start();
 
+$context_path = "/PHP_WebShop_Project/";
+$home_url="http://localhost" . $context_path;
+
+include_once __DIR__ . "/../auth/login_checker.php";
+
 // set your default time-zone
 date_default_timezone_set('Europe/Budapest');
-
-// home page url
-$home_url="http://localhost/PHP_WebShop_Project/";
 
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -19,4 +21,3 @@ $records_per_page = 5;
 
 // calculate for the query LIMIT clause
 $from_record_num = ($records_per_page * $page) - $records_per_page;
-?>

@@ -3,7 +3,6 @@ include_once "config/core.php";
 include_once "services/simpleServices/SimpleUserServices.php";
 
 $user_srv = new SimpleUserServices();
-var_dump($_SESSION['user_id']);
 $user_id = $_GET['id'];
 // get info from post
 $firstName = $_POST['firstName'];
@@ -13,7 +12,10 @@ $email = $_POST['email'];
 $address = $_POST['address'];
 
 $user_srv->UpdateUserDetails($user_id, $firstName, $lastName, $email, $contactNumber, $address);
-header("Location: logger/login.php?action=updated");
 
-session_destroy();
+$_SESSION['firstname'] = $firstName;
+$_SESSION['lastname'] = $lastName;
+
+header("Location: index.php?action=updated");
+
 

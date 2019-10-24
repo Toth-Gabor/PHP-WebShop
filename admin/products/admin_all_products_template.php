@@ -37,9 +37,9 @@ $productsList = $services->ReadAll();
                 <td><span class="pull-right"><?= $product->getQuantity() ?></span></td>
                 <td><?= $product->getCategory() ?></td>
                 <td>
-                    <?= "<a href='products/admin_product.php?id={$product->getId()}' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>"?>
-                         <a href="products/delete_product.php?id=<?= $product->getId() ?>" type="button" class="btn btn-labeled btn-danger btn-sm m-0">
-                            <span class="btn-label"></span>Delete</a>
+                    <?= "<a href='products/admin_product.php?id={$product->getId()}' type='button' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>"?>
+                    <?= "<a href='products/delete_product.php?id={$product->getId()}' type='button' class='btn btn-labeled btn-danger btn-sm m-0'>
+                            <span class='btn-label'></span>Delete</a>"?>
                 </td>
             </tr>
         <?php

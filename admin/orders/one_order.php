@@ -1,10 +1,5 @@
 <?php
 include_once "../../config/core.php";
-// must be logged in as admin!
-$require_login = true;
-
-//include "../../logger/login_checker.php";
-
 
 $page_title="Read order details";
 

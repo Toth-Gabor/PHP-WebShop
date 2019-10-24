@@ -1,4 +1,5 @@
 <?php
+
 class Utils{
 
     // will upload image file to server
@@ -79,4 +80,5 @@ class Utils{
         }
         return $result_message;
     }
+
 }

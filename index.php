@@ -19,6 +19,13 @@ if($action=='added'){?>
     </script> <?php
 }
 
+// user details updated
+if ($action == 'updated') {?>
+    <script type="text/javascript">
+        swal({title: 'Updated', text: 'Your details updated!', type: 'success', timer: 2200});
+    </script> <?php
+}
+
 if($action=='cart_empty'){?>
     <script type="text/javascript">
         swal({title: 'Info', text: 'Your cart is Empty!', type: 'info', timer: 1500});

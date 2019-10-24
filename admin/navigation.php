@@ -41,7 +41,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <!-- log out user -->
-                        <li><a href="<?php echo $home_url; ?>logger/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
+                        <li><a href="<?php echo $home_url; ?>auth/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                     </ul>
                 </li>
             </ul>

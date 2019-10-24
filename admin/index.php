@@ -1,17 +1,12 @@
 <?php
 // core configuration
 include_once "../config/core.php";
+
 // set page title
 $page_title="All products";
 
-// must be logged in as admin!
-$require_login = true;
-
-//include "../logger/login_checker.php";
-
 // include page header HTML
 include 'admin_layout_head.php';
-
 
 echo "<div class='col-md-12'>";
 

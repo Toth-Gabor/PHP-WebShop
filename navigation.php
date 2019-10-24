@@ -60,7 +60,7 @@ $categories = $product_srv->ReadAllCategories();
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="<?php echo $home_url; ?>profile.php"><i class="fa fa-cog"></i> Profile</a></li>
-                            <li><a href="<?php echo $home_url; ?>logger/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            <li><a href="<?php echo $home_url; ?>auth/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -77,13 +77,13 @@ $categories = $product_srv->ReadAllCategories();
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo $home_url; ?>logger/login.php">
+                        <a href="<?php echo $home_url; ?>auth/login.php">
                             <i class="fa fa-sign-in"></i> Login
                         </a>
                     </li>
 
                     <li>
-                        <a href="<?php echo $home_url; ?>logger/register.php">
+                        <a href="<?php echo $home_url; ?>auth/register.php">
                             <i class="fa fa-user-plus"></i> Register
                         </a>
                     </li>
