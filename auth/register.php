@@ -7,9 +7,6 @@ include_once "../config/core.php";
 // set page title
 $page_title = "Register";
 
-// include login checker
-include_once "../logger/login_checker.php";
-
 // include classes
 include_once '../services/simpleServices/SimpleUserServices.php';
 $sevices = new SimpleUserServices();

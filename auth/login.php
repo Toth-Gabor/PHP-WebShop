@@ -3,11 +3,6 @@ include_once "../config/core.php";
 
 $page_title = "Login";
 
-$require_login=false;
-
-
-include_once "../logger/login_checker.php";
-
 if($_POST){
     include_once "../services/simpleServices/SimpleUserServices.php";
 
@@ -26,7 +21,7 @@ if($_POST){
     //if ($email_exists && password_verify($_POST['password'], $user->getPassword()) && $user->getStatus()){
 
     // validate login
-    if ($email_exists && password_verify($_POST['password'], $user->getPassword()) && $user->getStatus() && $user != null) {
+    if ($email_exists && password_verify($_POST['password'], $user->getPassword()) && $user != null && $user->getStatus()) {
 
         // if it is, set the session value to true
         $_SESSION['logged_in'] = true;
@@ -49,7 +44,7 @@ if($_POST){
 
     // if username does not exist or password is wrong
     else{
-        header("Location: {$home_url}logger/login.php?action=incorrect");
+        header("Location: {$home_url}auth/login.php?action=incorrect");
     }
 }
 
@@ -63,12 +58,6 @@ $action=isset($_GET['action']) ? $_GET['action'] : "";
 // tell the user he is not yet logged in
 if($action =='not_yet_logged_in'){
     echo "<div class='alert alert-danger margin-top-40' role='alert'>Please login.</div>";
-}
-// user details updated
-if ($action == 'updated') {?>
-    <script type="text/javascript">
-        swal({title: 'Updated', text: 'Your details updated! Please login!', type: 'success', timer: 2200});
-    </script> <?php
 }
 
 // tell the user to login
