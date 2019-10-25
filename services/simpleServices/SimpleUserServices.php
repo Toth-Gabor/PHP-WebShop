@@ -23,6 +23,12 @@ class SimpleUserServices implements UserServices
         $this->userdao->UpdateUserDetails($user_id, $firstName, $lastName, $email, $contact_number, $address);
     }
 
+    public function UpdateUserPassword($user_id, $new_pw)
+    {
+        $this->userdao->UpdateUserPassword($user_id, $new_pw);
+    }
+
+
     public function ReadUserById($user_id)
     {
         return $this->userdao->GetUserById($user_id);
