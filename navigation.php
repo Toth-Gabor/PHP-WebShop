@@ -4,6 +4,15 @@ include_once "services/simpleServices/SimpleProductServices.php";
 $product_srv = new SimpleProductServices();
 
 $categories = $product_srv->ReadAllCategories();
+// if cart not empty
+if (isset($_SESSION['cart']) && $_SESSION['cart'] != 0){
+    $href = "#";
+    $id_name = "logout";
+} else {
+    $href = "auth/logout.php";
+    $id_name = "";
+}
+
 ?>
 
 <!-- navbar -->
@@ -32,9 +41,11 @@ $categories = $product_srv->ReadAllCategories();
                         <i class="fa fa-list"></i> Categories <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <!-- create categories drop down menu-->
-                        <?php foreach ($categories as $category){?>
-                          <li><a href='<?php echo $home_url; ?>index.php?category=<?= $category['category']?>'><?= $category['category']?></a></li>
-                        <?php }?>
+                        <?php foreach ($categories as $category) { ?>
+                            <li>
+                                <a href='<?php echo $home_url; ?>index.php?category=<?= $category['category'] ?>'><?= $category['category'] ?></a>
+                            </li>
+                        <?php } ?>
                         <li><a href='<?php echo $home_url; ?>index.php?category='>All</a></li>
                     </ul>
                 </li>
@@ -60,7 +71,31 @@ $categories = $product_srv->ReadAllCategories();
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="<?php echo $home_url; ?>profile.php"><i class="fa fa-cog"></i> Profile</a></li>
-                            <li><a href="<?php echo $home_url; ?>auth/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            <li><a href="<?php echo $href ?>" id="<?php echo $id_name ?>"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $("#logout").click(function () {
+
+                                        swal({
+                                            title: 'Warning!',
+                                            text: "If you log out, your cart will be lost!",
+                                            type: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#3085d6',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Yes, log out!'
+                                        })
+                                            .then((result) => {
+                                                if (result.value) {
+                                                    window.location.href = '<?php echo $home_url; ?>auth/logout.php', {
+                                                        icon: 'success',
+                                                    }
+                                                }
+                                            });
+
+                                    });
+                                });
+                            </script>
                         </ul>
                     </li>
                 </ul>

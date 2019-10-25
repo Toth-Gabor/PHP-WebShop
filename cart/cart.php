@@ -23,6 +23,18 @@ if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)) {
             swal({title: 'Info', text: 'The selected item has been removed from your Cart!', type: 'info', timer: 1800});
         </script> <?php
     }
+    if ($action == 'cart_not_empty') {?>
+        <script type="text/javascript">
+            swal({title:'Warning', text:'If you logout your cart items will be lost', type:'warning' , showCancelButton: true,
+                confirmButtonText: "Yes, logout!",
+                closeOnConfirm: false},
+                function(){
+                    swal({title:"Cart lost!", text:"Now you logout!", type:"success" timer: 1500});
+                });
+        </script>
+        <?php
+
+    }
 
     $total = 0;
     $item_count = 0;
