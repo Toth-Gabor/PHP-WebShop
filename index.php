@@ -52,7 +52,7 @@ if($action=='purchased') {?>
     </script> <?php
 
 }
-include_once "new_all_products.php";
+include_once "all_products.php";
 echo "</div>";
 
 // footer HTML and JavaScript codes
