@@ -8,8 +8,8 @@ $services = new SimpleProductServices();
 $productsList = $services->ReadAll();
 ?>
 
-<div"> <!-- col-md-4 m-b-20px -->
-    <table class='table table-hover table-responsive pc-card list-border-background'>
+<div>
+    <table class='table table-hover table-responsive pc-card list-border-background width-80-percent'>
         <thead>
             <tr>
                 <th><strong>#</strong></th>
