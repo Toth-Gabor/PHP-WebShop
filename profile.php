@@ -2,14 +2,22 @@
 // core configuration
 include_once "config/core.php";
 
-// set page title
-$page_title = "Profile";
-// include page header HTML
-
 include_once "layout_head.php";
 
-$user_id = $_SESSION['user_id'];
 include_once "services/simpleServices/SimpleUserServices.php";
+
+// set page title
+$page_title = "Profile";
+
+$action = isset($_GET['action']) ? $_GET['action'] : "";
+
+if($action == 'pw_updated'){?>
+    <script type="text/javascript">
+        swal({title:'Updated', text:'Passwords has been updated!', type:'info', timer:1700});
+    </script> <?php
+}
+
+$user_id = $_SESSION['user_id'];
 
 $user_srv = new SimpleUserServices();
 
@@ -52,15 +60,19 @@ $user = $user_srv->ReadUserById($user_id);
             </div>
             <br><br>
             <div class="mdi-format-align-middle">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-info">
                     Update your details
                 </button>
-                <a href="change_password.php?user_id=<?= $user_id ?>" class="btn btn-primary">
+                <a href="change_password.php?user_id=<?= $user_id ?>" class="btn btn-info">
                     Change password
+                </a>
+                <a href="index.php" class="btn btn-success">
+                    Back
                 </a>
             </div>
         </form>
     </div>
 
 <?php
+
 include_once "layout_foot.php";
