@@ -127,11 +127,11 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `contact_number`, `
 (15, 'Kobe Bro', 'Bryant', 'kobe@gmail.com', '09898787674', 'Los Angeles, California', '$2y$10$fmanyjJxNfJ8O3p9jjUixu6EOHkGZrThtcd..TeNz2g.XZyCIuVpm', 'Customer', '', 1, '2015-03-26', '2015-03-26 02:39:52'),
 (20, 'Tim', 'Duncan', 'tim@example.com', '9999999', 'San Antonio, Texas, USA', '$2y$10$9OSKHLhiDdBkJTmd3VLnQeNPCtyH1IvZmcHrz4khBMHdxc8PLX5G6', 'Customer', '0X4JwsRmdif8UyyIHSOUjhZz9tva3Czj', 1, '2016-05-26', '2016-05-25 15:25:59'),
 (21, 'Tony', 'Parker', 'tony@example.com', '8888888', 'Blk 24 A Lot 6 Ph 3\r\nPeace Village, San Luis', '$2y$10$lBJfvLyl/X5PieaztTYADOxOQeZJCqETayF.O9ld17z3hcKSJwZae', 'Customer', 'THM3xkZzXeza5ISoTyPKl6oLpVa88tYl', 1, '2016-05-26', '2016-06-13 15:46:33'),
-(22, 'GÃ¡bor', 'TÃ³th', 'admin@admin', '123456778', '3530 CsicsÃ³kÃ¡s', '$2y$10$ZrLCNH643T8HFOnSN7tLH.6qwP7krFoAIw/rZG7i9hWTAIjRFgs1m', 'Admin', '', 1, '2019-09-15', '2019-09-15 09:58:25'),
-(24, 'OttÃ³', 'Csiga', '1@1', '1234', 'BulivÃ¡r', '$2y$10$HKor5Yds28.K6r2t53y45uIHBFGNTTkA1K7TZOvlqTCvMbR9DI1vi', 'Customer', '', 1, '2019-09-19', '2019-09-19 14:20:29'),
-(25, 'Krisztina', 'OrbÃ¡n', 'upcgabor@gmail.com', '12345', 'asd', '$2y$10$S2ihuBDxdRsubrynHaO7BesxFUxel2PukvnY/dGbR5WUgsyBC30cy', 'Customer', '', 1, '2019-09-26', '2019-09-26 15:33:24'),
+(22, 'Gábor', 'Tóth', 'admin@admin', '123456778', '3530 CsicsÃ³kÃ¡s', '$2y$10$ZrLCNH643T8HFOnSN7tLH.6qwP7krFoAIw/rZG7i9hWTAIjRFgs1m', 'Admin', '', 1, '2019-09-15', '2019-09-15 09:58:25'),
+(24, 'Ottó', 'Csiga', '1@1', '1234', 'Bulivár', '$2y$10$HKor5Yds28.K6r2t53y45uIHBFGNTTkA1K7TZOvlqTCvMbR9DI1vi', 'Customer', '', 1, '2019-09-19', '2019-09-19 14:20:29'),
+(25, 'Krisztina', 'Orbán', 'upcgabor@gmail.com', '12345', 'asd', '$2y$10$S2ihuBDxdRsubrynHaO7BesxFUxel2PukvnY/dGbR5WUgsyBC30cy', 'Customer', '', 1, '2019-09-26', '2019-09-26 15:33:24'),
 (26, 'Martinka', 'Toth', 'user@user', '1234567', '3535 Miskolc', '$2y$10$jzyese6y5/ohFEW8s7ApiOdGAsCsA2prU3azDFjy8dRms74NhCkdK', 'Customer', '', 1, '2019-09-29', '2019-09-29 07:35:15'),
-(27, 'Csaba', 'TÃ³th', 'user@user11', '123476859', 'Debrecen Kossuth u. 11', '$2y$10$H36JZnxEAEjh5y5vWJfAH.WWrVwTHU3CGIMQsqNJVU16RHv2CKFK6', 'Customer', NULL, 1, '2019-09-29', '2019-09-29 14:26:47');
+(27, 'Csaba', 'Tóth', 'user@user11', '123476859', 'Debrecen Kossuth u. 11', '$2y$10$H36JZnxEAEjh5y5vWJfAH.WWrVwTHU3CGIMQsqNJVU16RHv2CKFK6', 'Customer', NULL, 1, '2019-09-29', '2019-09-29 14:26:47');
 
 --
 -- Indexek a kiírt táblákhoz

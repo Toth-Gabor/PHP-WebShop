@@ -29,7 +29,6 @@ $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 $sent = mail($to, $subject, $message, $headers);
-var_dump($sent);
 
 // update order status
 $order_srv->UpdateOrderStatus($order_id, "processed");
