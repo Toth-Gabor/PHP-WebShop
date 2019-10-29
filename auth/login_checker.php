@@ -26,13 +26,9 @@ $customerPages = array("{$context_path}",
 $guestPages = array("{$context_path}",
                     "{$context_path}index.php",
                     "{$context_path}product.php",
-                    "{$context_path}cart.php",
+                    "{$context_path}cart/cart.php",
                     "{$context_path}auth/login.php",
                     "{$context_path}auth/register.php");
-//var_dump($uri);
-//var_dump(checkArrayContains($adminPages, $uri));
-//var_dump(checkArrayContains($customerPages, $uri));
-//var_dump(checkArrayContains($guestPages, $uri));
 
 if (isset($_SESSION['access_level'])) {
     if ($_SESSION['access_level'] == "Customer") {
@@ -40,23 +36,19 @@ if (isset($_SESSION['access_level'])) {
         if (checkArrayContains($customerPages, $uri)) {
             return;
         }
-        //header("Location: {$home_url}index.php");
 
     } else if ($_SESSION['access_level'] == "Admin") {
         if (checkArrayContains($adminPages, $uri)) {
             return;
         }
-        //header("Location: {$home_url}admin/index.php");
     } else {
         die("Unknown access level: {$_SESSION['access_level']}");
     }
 } else if (checkArrayContains($guestPages, $uri)) {
-    //header("Location: {$home_url}auth/login.php?action=incorrect");
     return;
 } else {
     header("Location: {$home_url}auth/login.php?action=incorrect");
 }
-
 
 function checkArrayContains($urlArr, $url)
 {

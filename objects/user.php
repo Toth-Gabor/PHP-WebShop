@@ -1,5 +1,4 @@
 <?php
-// TODO: methods move to Dbo sevice
 class User{
 
     private $id;
