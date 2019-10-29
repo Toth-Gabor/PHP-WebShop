@@ -8,7 +8,7 @@ if($_POST){
 
     $sevices = new SimpleUserServices();
 
-    // check if email and password are in the database
+    // check if email and password are in the Database
     $email=$_POST['email'];
 
     $email_exists = $sevices->CheckEmailExists($email);

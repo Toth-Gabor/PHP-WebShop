@@ -14,7 +14,7 @@ include_once "../admin_layout_head.php";
 
 echo "<div class='col-md-12'>";
 
-// read all users from the database
+// read all users from the Database
 $usersList = $user_srv->ReadUsersBetween($from_record_num, $records_per_page);
 
 // count retrieved users

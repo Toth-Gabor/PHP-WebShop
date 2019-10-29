@@ -9,7 +9,7 @@ abstract class AbstractDao
     private $password = "";
     public $conn;
 
-    // get the database connection
+    // get the Database connection
     public function getConnection(){
 
         $this->conn = null;

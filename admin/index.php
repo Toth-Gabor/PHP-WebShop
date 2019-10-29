@@ -22,7 +22,7 @@ echo "<div class='col-md-12'>";
 
     if($action=='added'){
         echo "<div class='alert alert-info'>";
-            echo "Product has been <strong>Added</strong> to database.";
+            echo "Product has been <strong>Added</strong> to Database.";
         echo "</div>";
     }
 

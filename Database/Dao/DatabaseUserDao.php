@@ -36,7 +36,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -53,7 +53,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -74,7 +74,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -92,7 +92,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
             }
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
         return null;
     }
@@ -112,7 +112,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
             return $userList;
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -132,7 +132,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
             }
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -148,7 +148,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
                 return $this->FetchUser($row);
             }
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
         return null;
     }
@@ -172,7 +172,7 @@ class DatabaseUserDao extends AbstractDao implements UserDao
             return $userList;
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 

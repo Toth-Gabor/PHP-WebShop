@@ -30,7 +30,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -43,7 +43,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -63,7 +63,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
             return $productsList;
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -80,7 +80,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
                 return $this->FetchProduct($temp);
             }
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
         return null;
     }
@@ -101,7 +101,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
             return $productsList;
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -118,7 +118,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
                 return $this->FetchProduct($temp);
             }
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
         return null;
     }
@@ -143,7 +143,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -160,7 +160,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
                 return $quantity;
             }
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
         return null;
     }
@@ -179,7 +179,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
             return $categoryList;
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 

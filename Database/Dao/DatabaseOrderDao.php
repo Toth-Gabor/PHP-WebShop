@@ -22,7 +22,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -40,7 +40,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
             return $ordersList;
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -57,7 +57,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
             }
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -71,7 +71,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
@@ -84,7 +84,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
             $row->execute();
 
         } catch (PDOException $pe) {
-            die("Could not connect to the database! " . $pe->getMessage());
+            die("Could not connect to the Database! " . $pe->getMessage());
         }
     }
 
